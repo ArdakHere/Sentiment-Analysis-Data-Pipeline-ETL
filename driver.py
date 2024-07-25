@@ -9,7 +9,7 @@ def perform_ingestion_and_processing_guardian(url: str):
     guardian_news = getGuardianNews(url)
     guardian_news_data = assign_sentiment_data('guardian', guardian_news)
 
-    return guardian_news_data
+    return guardian_news
 
 def perform_ingestion_and_processing_nurkz(url: str):
     nurkz_news = getNurkzNews(url)
@@ -218,8 +218,8 @@ def tengrinews_pipeline():
 
 #print(calculate_avg_sentiment_for_publisher(data))
 
-tengrinews_pipeline()
-bbc_pipeline()
-nurkz_pipeline()
+# tengrinews_pipeline()
+# bbc_pipeline()
+# nurkz_pipeline()
 guardian_pipeline()
-euronews_pipeline()
+# euronews_pipeline()
