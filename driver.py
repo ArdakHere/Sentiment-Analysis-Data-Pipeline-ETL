@@ -221,5 +221,65 @@ def tengrinews_pipeline():
 # tengrinews_pipeline()
 # bbc_pipeline()
 # nurkz_pipeline()
-guardian_pipeline()
+#guardian_pipeline()
 # euronews_pipeline()
+
+
+
+# Define the base URL
+base_url = "http://127.0.0.1:5000"
+
+#Make a GET request to /ingest_data
+response_extract = requests.get(f"{base_url}/ingest_data")
+
+# Check if the request was successful
+if response_extract.status_code == 200:
+    print("GET /ingest_data response: success")
+    print(response_extract.json())  # Print the received data
+else:
+    print(f"GET request failed with status code {response_extract.status_code}")
+
+# Prepare data for the POST request
+data_to_send = response_extract.json()  # Using the data received from the GET request
+
+
+# Make a POST request to /process_data
+response_transform = requests.post(f"{base_url}/process_data", json=data_to_send)
+
+# Check if the request was successful
+if response_transform.status_code == 200:
+    print("POST /process_data response: success")
+else:
+    print(f"POST request failed with status code {response_transform.status_code}")
+
+
+# LOAD data to MongoDB
+data_to_send = response_transform.json()  # Using the data received from the GET request
+data_transform = response_transform.json()
+
+response_load_data = requests.post(f"{base_url}/load_processed_data", json=data_to_send)
+
+# Check if the request was successful
+if response_load_data.status_code == 200:
+    print("POST /process_data response: success")
+else:
+    print(f"POST request failed with status code {response_load_data.status_code}")
+
+
+data_to_send = data_transform  # Using the data received from the GET request
+
+
+response_freq = requests.post(f"{base_url}/get_word_frequency", json=data_to_send)
+
+# Check if the request was successful
+if response_freq.status_code == 200:
+    print("POST /process_data response: success")
+else:
+    print(f"POST request failed with status code {response_freq.status_code}")
+
+response_publisher_rating = requests.get(f"{base_url}/get_publisher_sentiment")
+
+if response_publisher_rating.status_code == 200:
+    print("POST /process_data response: success")
+else:
+    print(f"POST request failed with status code {response_publisher_rating.status_code}")

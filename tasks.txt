@@ -1,0 +1,4 @@
+Frequency endpoint for most frequent words with timestamps DONE
+Avg sentiment endpoint for publishers with timestamps DONE
+Add timestamps to each processed news DONE
+Create separate collections for type of data DONE

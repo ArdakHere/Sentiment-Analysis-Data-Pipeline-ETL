@@ -53,6 +53,7 @@ def getGuardianNews(url: str):
     ]
     return clean_text
 
+
 def getNurkzNews(url: str):
     try:
         response = requests.get(url)
