@@ -2,3 +2,8 @@ Frequency endpoint for most frequent words with timestamps DONE
 Avg sentiment endpoint for publishers with timestamps DONE
 Add timestamps to each processed news DONE
 Create separate collections for type of data DONE
+Add color to avg publisher sentiments DONE
+
+Add and check frequency calc DAY endpoint SHELVED
+Word Frequency for Specific publisher endpoint SHELVED
+Check frequency calc cumulative endpoint SHELVED

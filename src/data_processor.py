@@ -47,7 +47,7 @@ def assign_sentiment_data(publisher: str, news_texts: dict) -> dict:
     db = client["news_data"]
     collection = db["news_processed"]
 
-    timestamp = datetime.utcnow().isoformat()  # You can use .isoformat() for a readable format
+    timestamp = datetime.utcnow().strftime('%Y-%m-%d')
 
     for article_text in news_texts:
         sentiment_index = analyzer.polarity_scores(article_text)

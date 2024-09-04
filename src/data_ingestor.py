@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import requests
 import ssl
 import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -10,12 +12,11 @@ except AttributeError:
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from deep_translator import GoogleTranslator
 import html
-from data_processor import *
+from src.data_processor import *
 
 analyzer = SentimentIntensityAnalyzer()
+
 
 def getGuardianNews(url: str):
 
