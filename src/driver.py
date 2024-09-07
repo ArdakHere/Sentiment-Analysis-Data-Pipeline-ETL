@@ -3,7 +3,7 @@ import requests
 
 
 # Define the base URL
-base_url = "https://airway-chrome-extension.onrender.com"
+base_url = "https://newssentimentdashboard.onrender.com"
 
 #Make a GET request to /ingest_data
 

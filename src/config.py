@@ -17,5 +17,5 @@ settings = Settings()
 
 
 def get_db_url():
-    return ("postgresql+asyncpg://admin:gLjjGw6caBQIZn1eZ1cOjlrzxlkehgLg@dpg-cre2685svqrc73fd3o30-a.oregon-postgres.render.com/dashboard_db_qnpf")
+    return ("postgresql+asyncpg://admin:r7rsXoiDilsdVANMsZReMgZDd6IqZpHb@dpg-cre4f3jv2p9s73cq6kb0-a.oregon-postgres.render.com/da_db")
 
