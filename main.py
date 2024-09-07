@@ -4,10 +4,7 @@ from collections import defaultdict, Counter
 from datetime import timedelta
 
 from fastapi import FastAPI, Depends, Request, HTTPException
-# from flask import Flask, jsonify, Response, stream_with_context
 from bson.json_util import dumps
-from nltk.stem import PorterStemmer
-from nltk.corpus import stopwords
 from sqlalchemy import select, func, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.responses import JSONResponse
@@ -15,10 +12,7 @@ from starlette.responses import JSONResponse
 from src.database import engine, async_session_maker
 from src.models.models import Base, NewsProcessed, NewsFrequencyWords
 from src.data_ingestor import *
-from flask_cors import CORS
-from pymongo import MongoClient
 
-stop_words = set(stopwords.words('english'))
 
 app = FastAPI()
 
@@ -76,9 +70,6 @@ async def process_data(request: Request):
         i = i + 1
 
     return JSONResponse(content=list, status_code=200)
-
-
-stemmer = PorterStemmer()
 
 
 @app.post('/get_word_frequency')
