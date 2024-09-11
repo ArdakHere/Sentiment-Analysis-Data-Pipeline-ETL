@@ -13,6 +13,9 @@ from src.database import engine, async_session_maker
 from src.models.models import Base, NewsProcessed, NewsFrequencyWords
 from src.data_ingestor import *
 
+from apscheduler.schedulers.background import BackgroundScheduler
+import subprocess
+
 
 app = FastAPI()
 
@@ -26,6 +29,20 @@ STOP_WORDS = {"the", "and", "is", "in", "of", "to", "a", "are", "how", "as", "fr
               "we", "they", "me", "him", "her", "us", "them", "an", "or", "but", "s",
               "if", "so", "be", "been", "being", "have", "has", "had", "do", "does",
               "did", "will", "would", "shall", "should", "can", "could", "may", "might", "must"}
+
+
+scheduler = BackgroundScheduler()
+
+
+def run_driver_script():
+    # Assuming driver.py is in the same directory or adjust the path accordingly
+    subprocess.run(["python", "src/driver.py"])
+
+
+# Schedule the task to run every day at 19:00 UTC
+scheduler.add_job(run_driver_script, 'cron', hour=22, minute=0, second=0, timezone='UTC')
+scheduler.start()
+
 
 async def get_session() -> AsyncSession:
     async with async_session_maker() as session:
