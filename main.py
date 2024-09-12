@@ -40,7 +40,7 @@ def run_driver_script():
 
 
 # Schedule the task to run every day at 19:00 UTC
-scheduler.add_job(run_driver_script, 'cron', hour=8, minute=50, second=0, timezone='UTC')
+scheduler.add_job(run_driver_script, 'cron', hour=9, minute=5, second=0, timezone='UTC')
 scheduler.start()
 
 
