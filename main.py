@@ -40,7 +40,7 @@ def run_driver_script():
 
 
 # Schedule the task to run every day at 19:00 UTC
-scheduler.add_job(run_driver_script, 'cron', hour=9, minute=5, second=0, timezone='UTC')
+scheduler.add_job(run_driver_script, 'cron', hour=22, minute=0, second=0, timezone='UTC')
 scheduler.start()
 
 
@@ -122,9 +122,9 @@ async def get_word_frequency(request: Request):
                         }
                 else:
                     word = word.lower()
-                    print("Before stop check " + word)
+                    # print("Before stop check " + word)
                     if word.isalpha() and word not in STOP_WORDS:
-                        print("After stop check " + word)
+                        # print("After stop check " + word)
                         if word in word_frequencies:
                             word_frequencies[word]['frequency'] += 1
                             word_frequencies[word]['associated_sentiment'] = (
