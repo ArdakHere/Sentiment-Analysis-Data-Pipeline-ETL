@@ -2,7 +2,6 @@ from data_ingestor import *
 import requests
 
 
-
 # Define the base URL
 base_url = "https://newssentimentdashboard.onrender.com"
 
