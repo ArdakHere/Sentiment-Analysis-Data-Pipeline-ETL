@@ -59,17 +59,18 @@ async def ingest_data():
     guardian_list = getGuardianNews("https://www.theguardian.com")
     nytimes_list = getNYtimesnews("https://www.nytimes.com")
     bbc_list = getBBCnews("https://bbc.com")
+    euronews_list = getEuronews("https://www.euronews.com/")
+    moscowtimes_list = getMoscowTimesNews("https://www.themoscowtimes.com")
     # nurkz_list = getNurkzNews("https://nur.kz")
     # tengrinews_list = getTengriNews("https://tengrinews.kz")
-    # moscowtimes_list = getMoscowTimesNews("https://www.themoscowtimes.com")
+
 
     news_data_combined = {
         'guardian': guardian_list,
         'nytimes': nytimes_list,
         'bbc': bbc_list,
-        # 'nurkz': nurkz_list,
-        # 'tengrinews': tengrinews_list,
-        # 'moscowtimes': moscowtimes_list
+        'euronews': euronews_list,
+        'moscowtimes': moscowtimes_list
     }
     return JSONResponse(content=news_data_combined, status_code=200)
 
@@ -206,6 +207,7 @@ async def load_processed_data(collection_name: str, request: Request, session: A
 
 @app.get('/get_processed_news_from_db')
 def get_processed_news_from_db():
+
     db = client["news_data"]
     collection = db["news_processed"]
     documents = collection.find()

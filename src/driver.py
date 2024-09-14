@@ -3,7 +3,7 @@ import requests
 
 
 # Define the base URL
-base_url = "https://newssentimentdashboard.onrender.com"
+base_url = "http://127.0.0.1:8000/"
 
 #Make a GET request to /ingest_data
 
