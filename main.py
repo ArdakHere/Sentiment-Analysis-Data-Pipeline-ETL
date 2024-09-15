@@ -60,8 +60,9 @@ async def ingest_data():
     nytimes_list = getNYtimesnews("https://www.nytimes.com")
     bbc_list = getBBCnews("https://bbc.com")
     euronews_list = getEuronews("https://www.euronews.com")
+    aljazeera_list = getAljazeeraNews("https://www.aljazeera.com")
 
-    moscowtimes_list = getMoscowTimesNews("https://www.themoscowtimes.com")
+    # moscowtimes_list = getMoscowTimesNews("https://www.themoscowtimes.com")
     # nurkz_list = getNurkzNews("https://nur.kz")
     # tengrinews_list = getTengriNews("https://tengrinews.kz")
     news_data_combined = {
@@ -69,7 +70,8 @@ async def ingest_data():
         'nytimes': nytimes_list,
         'bbc': bbc_list,
         'euronews': euronews_list,
-        'moscowtimes': moscowtimes_list
+        # 'moscowtimes': moscowtimes_list,
+        'aljazeera': aljazeera_list
     }
     # print("Printing Euronews_list")
     # print(euronews_list)
