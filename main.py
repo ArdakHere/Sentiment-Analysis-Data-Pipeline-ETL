@@ -35,13 +35,21 @@ scheduler = BackgroundScheduler()
 
 
 def run_driver_script():
-    # Assuming driver.py is in the same directory or adjust the path accordingly
+    # Assuming driver.py is in the correct path
     subprocess.run(["python", "src/driver.py"])
 
 
-# Schedule the task to run every day at 19:00 UTC
-scheduler.add_job(run_driver_script, 'cron', hour=16, minute=20, second=0, timezone='UTC')
-scheduler.start()
+@app.on_event("startup")
+async def startup_event():
+    # Schedule the task to run every day at 19:00 UTC
+    scheduler.add_job(run_driver_script, 'cron', hour=17, minute=0, second=0, timezone='UTC')
+    scheduler.start()
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    # Shutdown the scheduler when the app shuts down
+    scheduler.shutdown()
 
 
 async def get_session() -> AsyncSession:
