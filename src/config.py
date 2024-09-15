@@ -17,5 +17,9 @@ settings = Settings()
 
 
 def get_db_url():
-    return ("postgresql+asyncpg://admin:r7rsXoiDilsdVANMsZReMgZDd6IqZpHb@dpg-cre4f3jv2p9s73cq6kb0-a.oregon-postgres.render.com/da_db")
+    return (
+        f"postgresql+asyncpg://{settings.DB_USER}:{settings.DB_PASSWORD}@"
+        f"{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}"
+    )
+
 

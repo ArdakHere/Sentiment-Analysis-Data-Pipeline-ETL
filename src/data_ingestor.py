@@ -84,6 +84,7 @@ def getNurkzNews(url: str):
 
     return translated_texts
 
+
 def getBBCnews(url: str):
     try:
         response = requests.get(url)
@@ -106,7 +107,8 @@ def getBBCnews(url: str):
 
     return clean_texts
 
-def getEuronews(url):
+
+def getEuronews(url: str):
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -122,7 +124,7 @@ def getEuronews(url):
     soup = BeautifulSoup(html_content, 'html.parser')
 
     unwanted_substrings = ["Read more", "Log In", "wallpaper link", "My Account", "Euronews Logo"]
-
+    print
     # Extract text from aria-label attributes only if href is present and text does not contain unwanted substrings
     links = soup.find_all('a', attrs={'aria-label': True, 'href': True})
     clean_texts = [
@@ -130,8 +132,9 @@ def getEuronews(url):
         for link in links
         if not any(substring in link['aria-label'] for substring in unwanted_substrings)
     ]
-
+    print(clean_texts)
     return clean_texts
+
 
 def getTengriNews(url):
     try:
@@ -185,6 +188,7 @@ def getMoscowTimesNews(url):
 
     # Initialize the dictionary
     return clean_texts
+
 
 def getNYtimesnews(url):
     try:

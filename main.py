@@ -59,12 +59,11 @@ async def ingest_data():
     guardian_list = getGuardianNews("https://www.theguardian.com")
     nytimes_list = getNYtimesnews("https://www.nytimes.com")
     bbc_list = getBBCnews("https://bbc.com")
-    euronews_list = getEuronews("https://www.euronews.com/")
+    euronews_list = getEuronews("https://www.euronews.com")
+
     moscowtimes_list = getMoscowTimesNews("https://www.themoscowtimes.com")
     # nurkz_list = getNurkzNews("https://nur.kz")
     # tengrinews_list = getTengriNews("https://tengrinews.kz")
-
-
     news_data_combined = {
         'guardian': guardian_list,
         'nytimes': nytimes_list,
@@ -72,6 +71,12 @@ async def ingest_data():
         'euronews': euronews_list,
         'moscowtimes': moscowtimes_list
     }
+    # print("Printing Euronews_list")
+    # print(euronews_list)
+    # print("---------------------------------------------------------")
+    # print("Printing News_data_combined")
+    # print(news_data_combined)
+
     return JSONResponse(content=news_data_combined, status_code=200)
 
 
