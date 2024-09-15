@@ -1,22 +1,22 @@
-from data_ingestor import *
-import requests
+# from data_ingestor import *
+# import requests
 
-print("hiiiiiiiiii")
+print("HE HEY EH HEY hEYEWFEWJFNEWKJ")
 # Define the base URL
-base_url = "https://newssentimentdashboard.onrender.com"
-
-#Make a GET request to /ingest_data
-
-response_extract = requests.get(f"{base_url}/ingest_data")
-print("Hello, haven't entered if clause yet")
-# Check if the request was successful
-if response_extract.status_code == 200:
-    print("Hi,  200")
-    print("GET /ingest_data response: success")
-    print(response_extract.json())  # Print the received data
-else:
-    print(f"GET request failed with status code {response_extract.status_code}")
-
+# base_url = "https://newssentimentdashboard.onrender.com"
+#
+# #Make a GET request to /ingest_data
+#
+# response_extract = requests.get(f"{base_url}/ingest_data")
+# print("Hello, haven't entered if clause yet")
+# # Check if the request was successful
+# if response_extract.status_code == 200:
+#     print("Hi,  200")
+#     print("GET /ingest_data response: success")
+#     print(response_extract.json())  # Print the received data
+# else:
+#     print(f"GET request failed with status code {response_extract.status_code}")
+#
 
 # #
 # #
