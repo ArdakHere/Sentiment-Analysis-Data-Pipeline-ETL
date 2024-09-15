@@ -31,25 +31,9 @@ STOP_WORDS = {"the", "and", "is", "in", "of", "to", "a", "are", "how", "as", "fr
               "did", "will", "would", "shall", "should", "can", "could", "may", "might", "must"}
 
 
-scheduler = BackgroundScheduler()
-
-
 def run_driver_script():
     # Assuming driver.py is in the correct path
     subprocess.run(["python", "src/driver.py"])
-
-
-@app.on_event("startup")
-async def startup_event():
-    # Schedule the task to run every day at 19:00 UTC
-    scheduler.add_job(run_driver_script, 'cron', hour=17, minute=0, second=0, timezone='UTC')
-    scheduler.start()
-
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    # Shutdown the scheduler when the app shuts down
-    scheduler.shutdown()
 
 
 async def get_session() -> AsyncSession:
@@ -248,6 +232,10 @@ def get_avg_publisher_sentiment_from_db():
     return JSONResponse(content=json_data, status_code=200)
 
 
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run("main:app", host="0.0.0.0", port=5000, reload=True)
+if __name__ == "__main__":
+    import uvicorn
+
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(run_driver_script, 'cron', hour=17, minute=15, second=0, timezone='UTC')
+    scheduler.start()
+    uvicorn.run("main:app", host="0.0.0.0", port=5000, reload=True)
