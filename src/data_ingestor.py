@@ -133,6 +133,7 @@ def getEuronews(url):
 
     return clean_texts
 
+
 def getTengriNews(url):
     try:
         response = requests.get(url)
