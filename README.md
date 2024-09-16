@@ -35,3 +35,5 @@ What I would like to do:
 - add a bias analysis
 - add more news outlets to analyze (also have scripts ready for Nur.kz, Tengrinews.kz and Moscowtimes)
 - try using the tools I rejected earlier
+
+I am open to feedback and suggestions to add/improve something, don't hesitate.
