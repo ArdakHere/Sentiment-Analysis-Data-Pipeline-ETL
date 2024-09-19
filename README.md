@@ -1,4 +1,4 @@
-Data Engineering/Analytics pet-project, Data pipeline for ingestion of web-scraped data from news websites, processing it with Python sentiment libraries, loading it to PostgreSQL for future visualization with Python script. Orchestrated with Python. Super is used for Visualization
+Data Engineering/Analytics pet-project, Data pipeline for ingestion of web-scraped data from news websites, processing it with Python sentiment libraries, loading it to PostgreSQL for future visualization with Python script. Orchestrated with Python. Apache Superset is used for Visualization
 
 Resources
 
