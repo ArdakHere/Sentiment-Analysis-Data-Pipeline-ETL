@@ -6,6 +6,9 @@ Link (shortened) - https://rb.gy/gl2jsz. Enter credentials, login and password a
 
 ![Data Ingestion](https://github.com/user-attachments/assets/77e7f462-f403-4f2c-97fe-23fbf7d247b1)
 
+![Uploading Screenshot 2024-09-30 at 19.36.08.png…]()
+
+
 **Development status 16.09.2024
 **
 Attached is the schema of the pipeline. It works as follows:
