@@ -1,0 +1,242 @@
+[2024-10-29T18:08:19.720+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: molecule_load_dag.transform_and_load_op manual__2024-10-29T18:08:13.747480+00:00 [queued]>
+[2024-10-29T18:08:19.729+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: molecule_load_dag.transform_and_load_op manual__2024-10-29T18:08:13.747480+00:00 [queued]>
+[2024-10-29T18:08:19.730+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-10-29T18:08:19.740+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_and_load_op> on 2024-10-29 18:08:13.747480+00:00
+[2024-10-29T18:08:19.744+0000] {standard_task_runner.py:60} INFO - Started process 1316 to run task
+[2024-10-29T18:08:19.747+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'molecule_load_dag', 'transform_and_load_op', 'manual__2024-10-29T18:08:13.747480+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmppizzhzrw']
+[2024-10-29T18:08:19.749+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask transform_and_load_op
+[2024-10-29T18:08:19.784+0000] {task_command.py:423} INFO - Running <TaskInstance: molecule_load_dag.transform_and_load_op manual__2024-10-29T18:08:13.747480+00:00 [running]> on host 42c9970b34e6
+[2024-10-29T18:08:19.837+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='molecule_load_dag' AIRFLOW_CTX_TASK_ID='transform_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-10-29T18:08:13.747480+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-29T18:08:13.747480+00:00'
+[2024-10-29T18:08:19.844+0000] {base.py:83} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-10-29T18:08:19.844+0000] {logging_mixin.py:188} INFO - us-east-2
+AKIAS2VS4PHYE3LHQNFT
+***
+[2024-10-29T18:08:20.783+0000] {logging_mixin.py:188} INFO - <class 'str'>
+[2024-10-29T18:08:20.789+0000] {logging_mixin.py:188} INFO - Transformed raw_df:
+[2024-10-29T18:08:20.793+0000] {logging_mixin.py:188} INFO -       publisher                                        news_string
+0     guardian  Harris heads to Texas as poll shows her tied w...
+1     guardian  Children among dead as 38 killed in Israeli at...
+2     guardian  King acknowledges ‘painful’ past as calls for ...
+3     guardian  Anti-hate group vows to continue work after El...
+4     guardian  ‘Someone who destroyed my life’: rapper Shyne ...
+..         ...                                                ...
+447  aljazeera                                                NaN
+448  aljazeera                                                NaN
+449  aljazeera                                                NaN
+450  aljazeera                                                NaN
+451  aljazeera                                                NaN
+
+[452 rows x 2 columns]
+[2024-10-29T18:08:20.795+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.795+0000] {logging_mixin.py:188} INFO - Harris heads to Texas as poll shows her tied with Trump at 48%
+[2024-10-29T18:08:20.797+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.797+0000] {logging_mixin.py:188} INFO - Children among dead as 38 killed in Israeli attack on Khan Younis
+[2024-10-29T18:08:20.798+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.798+0000] {logging_mixin.py:188} INFO - King acknowledges ‘painful’ past as calls for slavery reparations grow at summit
+[2024-10-29T18:08:20.799+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.800+0000] {logging_mixin.py:188} INFO - Anti-hate group vows to continue work after Elon Musk’s declaration of ‘war’
+[2024-10-29T18:08:20.801+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.801+0000] {logging_mixin.py:188} INFO - ‘Someone who destroyed my life’: rapper Shyne on Sean ‘Diddy’ Combs in new documentary
+[2024-10-29T18:08:20.802+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.802+0000] {logging_mixin.py:188} INFO - Legal bid for Ecuador forest to be recognised as song co-creator
+[2024-10-29T18:08:20.804+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.804+0000] {logging_mixin.py:188} INFO - LA district attorney recommends resentencing for Menéndez brothers
+[2024-10-29T18:08:20.805+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.805+0000] {logging_mixin.py:188} INFO - ‘We have emotions too’: Climate scientists respond to attacks on objectivity
+[2024-10-29T18:08:20.806+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.807+0000] {logging_mixin.py:188} INFO - Sliver of cool surface water 2mm deep helps oceans absorb CO2, say scientists
+[2024-10-29T18:08:20.808+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.808+0000] {logging_mixin.py:188} INFO - Helen Mirren: it’s so sad Kurt Cobain died before GPS was invented
+[2024-10-29T18:08:20.809+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.809+0000] {logging_mixin.py:188} INFO - Watershed moment as Georgia goes to polls in tussle between Russia and west
+[2024-10-29T18:08:20.811+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.811+0000] {logging_mixin.py:188} INFO - ‘Blood alliance’: why South Korea fears North’s involvement in Ukraine war
+[2024-10-29T18:08:20.812+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.812+0000] {logging_mixin.py:188} INFO - High-stakes pension plebiscite could turn Uruguay’s election in to its ‘Brexit moment’
+[2024-10-29T18:08:20.813+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.814+0000] {logging_mixin.py:188} INFO - Lady Gaga: Disease review – a return to form, and to her classic sound
+[2024-10-29T18:08:20.815+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.815+0000] {logging_mixin.py:188} INFO - Should my flatmate stop drying her underwear on our radiators?
+[2024-10-29T18:08:20.816+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.816+0000] {logging_mixin.py:188} INFO - Hellah Sidibe: the pioneering ultrarunner who was once scared of running
+[2024-10-29T18:08:20.817+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.817+0000] {logging_mixin.py:188} INFO - ‘It’s going to be much darker’: inside the deadly return of TV masterpiece Wolf Hall
+[2024-10-29T18:08:20.818+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.819+0000] {logging_mixin.py:188} INFO - ‘Who am I voting for? America!’ Chris Stapleton on patriotism, politics and being country’s great crossover star
+[2024-10-29T18:08:20.820+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.820+0000] {logging_mixin.py:188} INFO - I do hair and makeup for the dead
+[2024-10-29T18:08:20.821+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.821+0000] {logging_mixin.py:188} INFO - Kate Bush: Little Shrew review – this devastating film will make you weep at war’s violence against children
+[2024-10-29T18:08:20.822+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.823+0000] {logging_mixin.py:188} INFO - Growth the size of a melon: a scrotum-swelling disease threatening thousands
+[2024-10-29T18:08:20.824+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.824+0000] {logging_mixin.py:188} INFO - The US election interference row tells us this: Starmer’s political compass urgently needs resetting
+[2024-10-29T18:08:20.825+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.826+0000] {logging_mixin.py:188} INFO - Don’t ‘boy mum’ me. These stereotypes around raising children do enormous harm
+[2024-10-29T18:08:20.827+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.827+0000] {logging_mixin.py:188} INFO - A prime minister defending immigration? It can happen. It just did here in Spain
+[2024-10-29T18:08:20.828+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.828+0000] {logging_mixin.py:188} INFO - If Civilization is falling apart, I might as well control it myself
+[2024-10-29T18:08:20.829+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.830+0000] {logging_mixin.py:188} INFO - The corporate takeover of ‘craft beer’ leaves a nasty taste in the mouth
+[2024-10-29T18:08:20.831+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.831+0000] {logging_mixin.py:188} INFO - Obama fan-boys Eminem, American Airlines gets tough on ‘gate lice’
+[2024-10-29T18:08:20.832+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.832+0000] {logging_mixin.py:188} INFO - Pakistan turn tide on England with Saud century and late wickets
+[2024-10-29T18:08:20.833+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.833+0000] {logging_mixin.py:188} INFO - England v Germany buildup, Premier League news and Europa League reaction
+[2024-10-29T18:08:20.834+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.835+0000] {logging_mixin.py:188} INFO - Data, repeat viewings and gut feeling: how Liverpool signed Firmino
+[2024-10-29T18:08:20.836+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.836+0000] {logging_mixin.py:188} INFO - Will the Yankees or Dodgers win east v west coast heavyweight clash?
+[2024-10-29T18:08:20.837+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.837+0000] {logging_mixin.py:188} INFO - Howe tells Alexander Isak to ‘focus on football’ not a new deal
+[2024-10-29T18:08:20.838+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.838+0000] {logging_mixin.py:188} INFO - Pressure on Steidten and Lopetegui as West Ham revamp stalls
+[2024-10-29T18:08:20.839+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.840+0000] {logging_mixin.py:188} INFO - 10 things to look out for this weekend as Liverpool visit Arsenal
+[2024-10-29T18:08:20.841+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.841+0000] {logging_mixin.py:188} INFO - Mancini walks away from Saudi Arabia after 14 months as coach 
+[2024-10-29T18:08:20.842+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.842+0000] {logging_mixin.py:188} INFO - Tropical storm season in full swing in Indian and Pacific oceans
+[2024-10-29T18:08:20.844+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.844+0000] {logging_mixin.py:188} INFO - ‘Crunch time for real’: UN says time for climate delays has run out
+[2024-10-29T18:08:20.845+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.845+0000] {logging_mixin.py:188} INFO - Hawaii sets rules to stop spread of tree-killing coconut rhinoceros beetles
+[2024-10-29T18:08:20.846+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.846+0000] {logging_mixin.py:188} INFO - US power grid added battery equivalent of 20 nuclear reactors in past four years
+[2024-10-29T18:08:20.847+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.848+0000] {logging_mixin.py:188} INFO - Where do Harris and Trump stand on the key election issues?
+[2024-10-29T18:08:20.849+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.849+0000] {logging_mixin.py:188} INFO - I visited JD Vance’s hometown. Here’s what I learned about young male voters
+[2024-10-29T18:08:20.850+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.850+0000] {logging_mixin.py:188} INFO - If Trump wins the election, this is what’s at stake for gun control
+[2024-10-29T18:08:20.851+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.852+0000] {logging_mixin.py:188} INFO - Nobel prize winners endorse Harris and warn Trump would endanger future of science
+[2024-10-29T18:08:20.853+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.853+0000] {logging_mixin.py:188} INFO - ‘Ours is a fight for the future’: Harris and Obama share stage for first time at Georgia rally
+[2024-10-29T18:08:20.854+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.854+0000] {logging_mixin.py:188} INFO - ‘Inhumane and wicked’: anguish over Italy’s expanded surrogacy ban
+[2024-10-29T18:08:20.855+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.856+0000] {logging_mixin.py:188} INFO - Putin does not deny North Korea has sent soldiers to Russia
+[2024-10-29T18:08:20.857+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.857+0000] {logging_mixin.py:188} INFO - Justin Trudeau insists he will lead Liberals into next election amid dissent
+[2024-10-29T18:08:20.858+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.859+0000] {logging_mixin.py:188} INFO - Israel’s plan to ban Unrwa from accessing Gaza marks new low in its relations with UN
+[2024-10-29T18:08:20.860+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.860+0000] {logging_mixin.py:188} INFO - ‘Sherpas are rarely seen as elite athletes’: record-breaking teenager’s fight for equality
+[2024-10-29T18:08:20.861+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.861+0000] {logging_mixin.py:188} INFO - UK consumers in ‘a despondent mood’ ahead of the budget; pound on track for worst month in a year  
+[2024-10-29T18:08:20.862+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.863+0000] {logging_mixin.py:188} INFO - Gambling poses huge global threat to public health, experts warn
+[2024-10-29T18:08:20.864+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.864+0000] {logging_mixin.py:188} INFO - Astronauts return from nearly eight months on ISS after Starliner problems
+[2024-10-29T18:08:20.865+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.865+0000] {logging_mixin.py:188} INFO - Limits on testing for bird flu in humans could pose difficulty for containing spread
+[2024-10-29T18:08:20.866+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.866+0000] {logging_mixin.py:188} INFO - Raye loses songwriting books for second album in car theft
+[2024-10-29T18:08:20.867+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.868+0000] {logging_mixin.py:188} INFO - Kate Bush shares plans to make new music: ‘I’ve got lots of ideas’
+[2024-10-29T18:08:20.869+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.869+0000] {logging_mixin.py:188} INFO - Letters by Oliver Sacks review – science, sex and motorcycles
+[2024-10-29T18:08:20.871+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.871+0000] {logging_mixin.py:188} INFO - Before review – Billy Crystal’s move into horror is brilliant
+[2024-10-29T18:08:20.873+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.873+0000] {logging_mixin.py:188} INFO - Lissa Evans: ‘Charlotte’s Web had me beside myself with rage and disbelief’
+[2024-10-29T18:08:20.875+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.875+0000] {logging_mixin.py:188} INFO - Children’s and teens roundup – the best new picture books and novels
+[2024-10-29T18:08:20.876+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.876+0000] {logging_mixin.py:188} INFO - ‘I stood on the sunny hilltop imagining I was a Roman’: readers’ favourite ancient sites in Europe
+[2024-10-29T18:08:20.877+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.878+0000] {logging_mixin.py:188} INFO - On a group holiday we realised we had feelings for each other
+[2024-10-29T18:08:20.879+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.879+0000] {logging_mixin.py:188} INFO - ‘Oh, look at the lovely gammon!’ The National Trust’s new woke trail 
+[2024-10-29T18:08:20.880+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.880+0000] {logging_mixin.py:188} INFO - Time for action on my maturing veg patch. First job? Tackle the rhubarb
+[2024-10-29T18:08:20.881+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.882+0000] {logging_mixin.py:188} INFO - Out with the bats, in with the brats: 7 Halloween costumes that lean into the zeitgeist
+[2024-10-29T18:08:20.883+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.883+0000] {logging_mixin.py:188} INFO - He did give me pause for thought about whether my position might be too extreme
+[2024-10-29T18:08:20.884+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.884+0000] {logging_mixin.py:188} INFO - Share your experience of being a runner for film or TV
+[2024-10-29T18:08:20.885+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.885+0000] {logging_mixin.py:188} INFO - How has Microsoft Excel become part of your life? 
+[2024-10-29T18:08:20.887+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.887+0000] {logging_mixin.py:188} INFO - How have you been affected by the recent violence?
+[2024-10-29T18:08:20.888+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.888+0000] {logging_mixin.py:188} INFO - Tell us your experience with Australia’s housing affordability crisis
+[2024-10-29T18:08:20.889+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.889+0000] {logging_mixin.py:188} INFO - Which disease-modifying Alzheimer’s drugs are the most promising?
+[2024-10-29T18:08:20.891+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.891+0000] {logging_mixin.py:188} INFO - Polls show historic gender split between Trump and Harris voters
+[2024-10-29T18:08:20.892+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.892+0000] {logging_mixin.py:188} INFO - Growth the size of a melon: a scrotum-swelling disease threatening thousands
+[2024-10-29T18:08:20.893+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.893+0000] {logging_mixin.py:188} INFO - This race could affect Pennsylvanians more than the presidential election. Can Democrats win?
+[2024-10-29T18:08:20.894+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.895+0000] {logging_mixin.py:188} INFO - What we’ve learned so far from the Lucy Letby inquiry: ‘cold’ character, missed opportunities and staff shortages
+[2024-10-29T18:08:20.896+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.896+0000] {logging_mixin.py:188} INFO - An unlikely Oakland mayor is fighting for political survival amid a billionaire-backed recall
+[2024-10-29T18:08:20.897+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.897+0000] {logging_mixin.py:188} INFO - ‘We don’t know where the tipping point is’: climate expert on potential collapse of Atlantic circulation
+[2024-10-29T18:08:20.898+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.899+0000] {logging_mixin.py:188} INFO - ‘An apology is free’: experts on the UK’s approach to slavery reparations
+[2024-10-29T18:08:20.900+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.900+0000] {logging_mixin.py:188} INFO - ‘I don’t have much hope for a Harris presidency’: Ta-Nehisi Coates on Israeli apartheid and what the media gets wrong about Palestine
+[2024-10-29T18:08:20.901+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.901+0000] {logging_mixin.py:188} INFO - What does Elon Musk want from all this politicking?
+[2024-10-29T18:08:20.902+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.903+0000] {logging_mixin.py:188} INFO - The trial of Björn Höcke, the ‘real boss’ of Germany’s far right – podcast
+[2024-10-29T18:08:20.904+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.904+0000] {logging_mixin.py:188} INFO - Why Elon Musk needs Donald Trump to win – podcast
+[2024-10-29T18:08:20.905+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.905+0000] {logging_mixin.py:188} INFO - Undercover inside a ‘scientific racism’ network – podcast
+[2024-10-29T18:08:20.906+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.906+0000] {logging_mixin.py:188} INFO - US election extra: Pennsylvania in the balance – podcast
+[2024-10-29T18:08:20.908+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.908+0000] {logging_mixin.py:188} INFO - Haaland goes full Matrix and a belter in Barcelona – Football Weekly Extra
+[2024-10-29T18:08:20.909+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.909+0000] {logging_mixin.py:188} INFO - What’s at stake for the climate if Trump wins? – podcast
+[2024-10-29T18:08:20.910+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.910+0000] {logging_mixin.py:188} INFO - On the road in Birmingham: can the budget save this bankrupt city – Politics Weekly UK
+[2024-10-29T18:08:20.912+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.912+0000] {logging_mixin.py:188} INFO - 'Love me some Eminem': Obama raps on stage at Harris campaign rally 
+[2024-10-29T18:08:20.913+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.913+0000] {logging_mixin.py:188} INFO - Video shows moment Beirut building is flattened in an Israeli strike
+[2024-10-29T18:08:20.914+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.914+0000] {logging_mixin.py:188} INFO - 'Europe is not paradise': one man's mission to stop Senegal’s youth dying at sea 
+[2024-10-29T18:08:20.916+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.916+0000] {logging_mixin.py:188} INFO - King Charles and Queen Camilla touch down in Australia for royal tour
+[2024-10-29T18:08:20.917+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.917+0000] {logging_mixin.py:188} INFO - A night of light and a giant maze
+[2024-10-29T18:08:20.918+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.918+0000] {logging_mixin.py:188} INFO - ‘Pole of Cold’: life in the coldest inhabited village on Earth – photo essay
+[2024-10-29T18:08:20.919+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.919+0000] {logging_mixin.py:188} INFO - King Charles and Queen Camilla receive royal welcome in Samoa 
+[2024-10-29T18:08:20.921+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.922+0000] {logging_mixin.py:188} INFO - Fabricating life in the Japanese village of Ichinono 
+[2024-10-29T18:08:20.923+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.923+0000] {logging_mixin.py:188} INFO - Cosy cottages for autumn for sale 
+[2024-10-29T18:08:20.924+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.924+0000] {logging_mixin.py:188} INFO - Jaguar cuddles, a supermarket cockatoo and a seal in Canary Wharf
+[2024-10-29T18:08:20.925+0000] {logging_mixin.py:188} INFO - guardian
+[2024-10-29T18:08:20.926+0000] {logging_mixin.py:188} INFO - nan
+[2024-10-29T18:08:20.926+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/utils/transform_and_load.py", line 50, in transform
+    sentiment_index = analyzer.polarity_scores(news_string)
+  File "/home/airflow/.local/lib/python3.8/site-packages/nltk/sentiment/vader.py", line 366, in polarity_scores
+    sentitext = SentiText(
+  File "/home/airflow/.local/lib/python3.8/site-packages/nltk/sentiment/vader.py", line 270, in __init__
+    text = str(text.encode("utf-8"))
+AttributeError: 'float' object has no attribute 'encode'
+[2024-10-29T18:08:20.933+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=molecule_load_dag, task_id=transform_and_load_op, execution_date=20241029T180813, start_date=20241029T180819, end_date=20241029T180820
+[2024-10-29T18:08:20.941+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 30 for task transform_and_load_op ('float' object has no attribute 'encode'; 1316)
+[2024-10-29T18:08:20.962+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-29T18:08:20.977+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

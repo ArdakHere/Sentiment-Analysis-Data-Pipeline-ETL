@@ -1,0 +1,28 @@
+[2024-10-29T17:40:04.023+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T17:40:01.437651+00:00 [queued]>
+[2024-10-29T17:40:04.028+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T17:40:01.437651+00:00 [queued]>
+[2024-10-29T17:40:04.029+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-10-29T17:40:04.037+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_and_load_op> on 2024-10-29 17:40:01.437651+00:00
+[2024-10-29T17:40:04.041+0000] {standard_task_runner.py:60} INFO - Started process 655 to run task
+[2024-10-29T17:40:04.044+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'molecule_load_dag', 'extract_and_load_op', 'manual__2024-10-29T17:40:01.437651+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpsni18ybn']
+[2024-10-29T17:40:04.046+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask extract_and_load_op
+[2024-10-29T17:40:04.085+0000] {task_command.py:423} INFO - Running <TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T17:40:01.437651+00:00 [running]> on host 42c9970b34e6
+[2024-10-29T17:40:04.138+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='molecule_load_dag' AIRFLOW_CTX_TASK_ID='extract_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-10-29T17:40:01.437651+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-29T17:40:01.437651+00:00'
+[2024-10-29T17:40:04.157+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/plugins/utils/extract_and_load.py", line 29, in extract
+    conn = BaseHook.get_connection(aws_conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/connection.py", line 479, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `aws_connection` isn't defined
+[2024-10-29T17:40:04.162+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=molecule_load_dag, task_id=extract_and_load_op, execution_date=20241029T174001, start_date=20241029T174004, end_date=20241029T174004
+[2024-10-29T17:40:04.170+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 6 for task extract_and_load_op (The conn_id `aws_connection` isn't defined; 655)
+[2024-10-29T17:40:04.188+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-29T17:40:04.206+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

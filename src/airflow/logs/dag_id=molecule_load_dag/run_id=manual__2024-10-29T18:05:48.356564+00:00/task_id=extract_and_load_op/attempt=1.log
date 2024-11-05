@@ -1,0 +1,18 @@
+[2024-10-29T18:05:50.348+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T18:05:48.356564+00:00 [queued]>
+[2024-10-29T18:05:50.354+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T18:05:48.356564+00:00 [queued]>
+[2024-10-29T18:05:50.355+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-10-29T18:05:50.364+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_and_load_op> on 2024-10-29 18:05:48.356564+00:00
+[2024-10-29T18:05:50.368+0000] {standard_task_runner.py:60} INFO - Started process 1251 to run task
+[2024-10-29T18:05:50.371+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'molecule_load_dag', 'extract_and_load_op', 'manual__2024-10-29T18:05:48.356564+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpmwzvqz05']
+[2024-10-29T18:05:50.374+0000] {standard_task_runner.py:88} INFO - Job 25: Subtask extract_and_load_op
+[2024-10-29T18:05:50.417+0000] {task_command.py:423} INFO - Running <TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-10-29T18:05:48.356564+00:00 [running]> on host 42c9970b34e6
+[2024-10-29T18:05:50.473+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='molecule_load_dag' AIRFLOW_CTX_TASK_ID='extract_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-10-29T18:05:48.356564+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-29T18:05:48.356564+00:00'
+[2024-10-29T18:05:50.487+0000] {base.py:83} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-10-29T18:05:50.488+0000] {logging_mixin.py:188} INFO - us-east-2
+AKIAS2VS4PHYE3LHQNFT
+***
+[2024-10-29T18:05:50.856+0000] {logging_mixin.py:188} INFO - issue here
+[2024-10-29T18:05:52.461+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-10-29T18:05:52.467+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=molecule_load_dag, task_id=extract_and_load_op, execution_date=20241029T180548, start_date=20241029T180550, end_date=20241029T180552
+[2024-10-29T18:05:52.514+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-10-29T18:05:52.532+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
