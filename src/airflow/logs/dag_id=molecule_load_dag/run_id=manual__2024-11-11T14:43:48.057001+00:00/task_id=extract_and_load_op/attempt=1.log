@@ -1,0 +1,22 @@
+[2024-11-11T14:43:49.132+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-11T14:43:49.143+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-11-11T14:43:48.057001+00:00 [queued]>
+[2024-11-11T14:43:49.149+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-11-11T14:43:48.057001+00:00 [queued]>
+[2024-11-11T14:43:49.149+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-11T14:43:49.157+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_and_load_op> on 2024-11-11 14:43:48.057001+00:00
+[2024-11-11T14:43:49.164+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'molecule_load_dag', 'extract_and_load_op', 'manual__2024-11-11T14:43:48.057001+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpv6o72rji']
+[2024-11-11T14:43:49.166+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=936) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-11T14:43:49.167+0000] {standard_task_runner.py:91} INFO - Job 93: Subtask extract_and_load_op
+[2024-11-11T14:43:49.167+0000] {standard_task_runner.py:64} INFO - Started process 937 to run task
+[2024-11-11T14:43:49.196+0000] {task_command.py:426} INFO - Running <TaskInstance: molecule_load_dag.extract_and_load_op manual__2024-11-11T14:43:48.057001+00:00 [running]> on host 33ac3a22d0b5
+[2024-11-11T14:43:49.253+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='molecule_load_dag' AIRFLOW_CTX_TASK_ID='extract_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-11-11T14:43:48.057001+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-11T14:43:48.057001+00:00'
+[2024-11-11T14:43:49.254+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-11T14:43:49.276+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-11-11T14:43:49.276+0000] {logging_mixin.py:188} INFO - us-east-2
+AKIAS2VS4PHYE3LHQNFT
+***
+[2024-11-11T14:43:52.315+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-11-11T14:43:52.316+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-11T14:43:52.322+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=molecule_load_dag, task_id=extract_and_load_op, run_id=manual__2024-11-11T14:43:48.057001+00:00, execution_date=20241111T144348, start_date=20241111T144349, end_date=20241111T144352
+[2024-11-11T14:43:52.367+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-11-11T14:43:52.384+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-11T14:43:52.386+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

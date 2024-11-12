@@ -2,9 +2,15 @@ from datetime import datetime
 from io import StringIO
 
 import boto3
+import nltk
 import pandas as pd
 from airflow.hooks.base import BaseHook
+from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 
+from data_ingestor import getGuardianNews, getNYtimesnews, getBBCnews, getAljazeeraNews
+from nltk.corpus import stopwords
+from nltk.probability import FreqDist
+from nltk.tokenize import word_tokenize
 
 
 def extract(ti):
@@ -15,7 +21,7 @@ def extract(ti):
     # nytimes_list = getNYtimesnews("https://www.nytimes.com")
     # bbc_list = getBBCnews("https://bbc.com")
     # aljazeera_list = getAljazeeraNews("https://www.aljazeera.com")
-
+    #
     # news_data_combined = {
     #     'guardian': guardian_list,
     #     'nytimes': nytimes_list,
@@ -43,7 +49,6 @@ def extract(ti):
         aws_secret_access_key=aws_secret_access_key,
         region_name=region_name
     )
-    print("issue here")
 
     csv_buffer = StringIO()
     raw_df.to_csv(csv_buffer, index=False)

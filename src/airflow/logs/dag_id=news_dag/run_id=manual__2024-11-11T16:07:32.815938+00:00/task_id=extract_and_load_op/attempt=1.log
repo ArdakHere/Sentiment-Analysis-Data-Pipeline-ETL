@@ -1,0 +1,40 @@
+[2024-11-11T16:07:33.206+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-11T16:07:33.218+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.extract_and_load_op manual__2024-11-11T16:07:32.815938+00:00 [queued]>
+[2024-11-11T16:07:33.224+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.extract_and_load_op manual__2024-11-11T16:07:32.815938+00:00 [queued]>
+[2024-11-11T16:07:33.224+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-11T16:07:33.234+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_and_load_op> on 2024-11-11 16:07:32.815938+00:00
+[2024-11-11T16:07:33.241+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'extract_and_load_op', 'manual__2024-11-11T16:07:32.815938+00:00', '--job-id', '120', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmp7f8fd067']
+[2024-11-11T16:07:33.245+0000] {standard_task_runner.py:91} INFO - Job 120: Subtask extract_and_load_op
+[2024-11-11T16:07:33.244+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=918) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-11T16:07:33.246+0000] {standard_task_runner.py:64} INFO - Started process 919 to run task
+[2024-11-11T16:07:33.278+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.extract_and_load_op manual__2024-11-11T16:07:32.815938+00:00 [running]> on host f1def9266cea
+[2024-11-11T16:07:33.338+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='extract_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-11-11T16:07:32.815938+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-11T16:07:32.815938+00:00'
+[2024-11-11T16:07:33.339+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-11T16:07:39.759+0000] {logging_mixin.py:188} INFO - An error occurred: HTTPSConnectionPool(host='www.bbc.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff8f75d070>: Failed to resolve 'www.bbc.com' ([Errno -2] Name or service not known)"))
+[2024-11-11T16:07:40.506+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-11T16:07:40.507+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/plugins/utils/extract_and_load.py", line 31, in extract
+    news_data_combined = ' '.join(guardian_list + nytimes_list + bbc_list + aljazeera_list)
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+TypeError: can only concatenate list (not "NoneType") to list
+[2024-11-11T16:07:40.515+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=news_dag, task_id=extract_and_load_op, run_id=manual__2024-11-11T16:07:32.815938+00:00, execution_date=20241111T160732, start_date=20241111T160733, end_date=20241111T160740
+[2024-11-11T16:07:40.524+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 120 for task extract_and_load_op (can only concatenate list (not "NoneType") to list; 919)
+[2024-11-11T16:07:40.567+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-11-11T16:07:40.580+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-11T16:07:40.583+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

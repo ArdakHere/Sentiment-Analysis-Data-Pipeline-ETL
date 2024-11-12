@@ -12,7 +12,7 @@ from utils.load import load
 
 
 with DAG(
-    dag_id='molecule_load_dag',
+    dag_id='news_dag',
     schedule=None,  # run manually
     tags=['python_school']
 ) as dag:

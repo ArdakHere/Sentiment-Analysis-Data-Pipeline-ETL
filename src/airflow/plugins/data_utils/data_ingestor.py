@@ -31,8 +31,6 @@ def getGuardianNews(url: str):
         print(f"An error occurred: {e}")
         return None
 
-    translator = GoogleTranslator(source='ru', target='en')
-
     soup = BeautifulSoup(html_content, 'html.parser')
 
     unwanted_substrings = ["Toggle main menu",
@@ -55,34 +53,34 @@ def getGuardianNews(url: str):
     return clean_text
 
 
-def getNurkzNews(url: str):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            html_content = response.text
-        else:
-            print(f"Failed to download HTML. Status code: {response.status_code}")
-            return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
-
-    translator = GoogleTranslator(source='ru', target='en')
-
-    soup = BeautifulSoup(html_content, 'html.parser')
-
-    # Find all elements with the specific classes
-    article_links = soup.find_all('a', class_='js-article-link article-link')
-
-    # Initialize the dictionary
-    translated_texts = []
-
-    # Populate the dictionary with extracted texts and placeholders
-    for article_text in article_links:
-        translated_text = translator.translate(article_text.get_text())
-        translated_texts.append(translated_text)
-
-    return translated_texts
+# def getNurkzNews(url: str):
+#     try:
+#         response = requests.get(url)
+#         if response.status_code == 200:
+#             html_content = response.text
+#         else:
+#             print(f"Failed to download HTML. Status code: {response.status_code}")
+#             return None
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         return None
+#
+#     translator = GoogleTranslator(source='ru', target='en')
+#
+#     soup = BeautifulSoup(html_content, 'html.parser')
+#
+#     # Find all elements with the specific classes
+#     article_links = soup.find_all('a', class_='js-article-link article-link')
+#
+#     # Initialize the dictionary
+#     translated_texts = []
+#
+#     # Populate the dictionary with extracted texts and placeholders
+#     for article_text in article_links:
+#         translated_text = translator.translate(article_text.get_text())
+#         translated_texts.append(translated_text)
+#
+#     return translated_texts
 
 
 def getBBCnews(url: str):
@@ -136,34 +134,34 @@ def getEuronews(url: str):
     return clean_texts
 
 
-def getTengriNews(url):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            html_content = response.text
-        else:
-            print(f"Failed to download HTML. Status code: {response.status_code}")
-            return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
-    # Parse the HTML content
-    soup = BeautifulSoup(html_content, 'html.parser')
-
-    spans = soup.find_all('span', class_='main-news_top_item_title')
-
-    # Extract and clean text from nested a tags
-    clean_texts = [html.unescape(span.find('a').get_text()) for span in spans if span.find('a')]
-
-    translator = GoogleTranslator(source='ru', target='en')
-    # Initialize the dictionary
-    translated_texts = []
-
-    for article_text in clean_texts:
-        translated_text = translator.translate(article_text)
-        translated_texts.append(translated_text)
-
-    return translated_texts
+# def getTengriNews(url):
+#     try:
+#         response = requests.get(url)
+#         if response.status_code == 200:
+#             html_content = response.text
+#         else:
+#             print(f"Failed to download HTML. Status code: {response.status_code}")
+#             return None
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         return None
+#     # Parse the HTML content
+#     soup = BeautifulSoup(html_content, 'html.parser')
+#
+#     spans = soup.find_all('span', class_='main-news_top_item_title')
+#
+#     # Extract and clean text from nested a tags
+#     clean_texts = [html.unescape(span.find('a').get_text()) for span in spans if span.find('a')]
+#
+#     translator = GoogleTranslator(source='ru', target='en')
+#     # Initialize the dictionary
+#     translated_texts = []
+#
+#     for article_text in clean_texts:
+#         translated_text = translator.translate(article_text)
+#         translated_texts.append(translated_text)
+#
+#     return translated_texts
 
 
 def getMoscowTimesNews(url):
@@ -184,8 +182,10 @@ def getMoscowTimesNews(url):
 
     # Extract and clean text from nested a tags
     links_article_excerpt = soup.find_all('a', class_='article-excerpt-default__link')
-    clean_texts = [html.unescape(link['title']) for link in links_article_excerpt]
-
+    clean_texts = [
+        html.unescape(link['title']) for link in links_article_excerpt
+        if len(html.unescape(link['title'])) <= 17
+    ]
     # Initialize the dictionary
     return clean_texts
 
@@ -213,9 +213,14 @@ def getAljazeeraNews(url):
     for div in div_tags:
         span_tags = div.find_all('span')
         for span in span_tags:
-            clean_texts.append(html.unescape(span.get_text()))
+            if (len(html.unescape(span.get_text())) > 11 and
+                    "ago" not in html.unescape(span.get_text()) and
+                    "Video Duration" not in html.unescape(span.get_text())):
+                clean_texts.append(html.unescape(span.get_text()))
 
     return clean_texts
+
+
 
 def getNYtimesnews(url):
     try:

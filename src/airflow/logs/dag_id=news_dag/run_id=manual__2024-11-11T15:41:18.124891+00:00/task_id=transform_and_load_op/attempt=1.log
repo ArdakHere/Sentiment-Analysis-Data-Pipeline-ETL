@@ -1,0 +1,632 @@
+[2024-11-11T15:41:33.031+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-11T15:41:33.042+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.transform_and_load_op manual__2024-11-11T15:41:18.124891+00:00 [queued]>
+[2024-11-11T15:41:33.047+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.transform_and_load_op manual__2024-11-11T15:41:18.124891+00:00 [queued]>
+[2024-11-11T15:41:33.048+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-11T15:41:33.055+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_and_load_op> on 2024-11-11 15:41:18.124891+00:00
+[2024-11-11T15:41:33.063+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'transform_and_load_op', 'manual__2024-11-11T15:41:18.124891+00:00', '--job-id', '113', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpc3rqgjn2']
+[2024-11-11T15:41:33.065+0000] {standard_task_runner.py:91} INFO - Job 113: Subtask transform_and_load_op
+[2024-11-11T15:41:33.064+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=334) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-11T15:41:33.066+0000] {standard_task_runner.py:64} INFO - Started process 335 to run task
+[2024-11-11T15:41:33.094+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.transform_and_load_op manual__2024-11-11T15:41:18.124891+00:00 [running]> on host f1def9266cea
+[2024-11-11T15:41:33.141+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='transform_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-11-11T15:41:18.124891+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-11T15:41:18.124891+00:00'
+[2024-11-11T15:41:33.142+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-11T15:41:33.157+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-11-11T15:41:33.230+0000] {logging_mixin.py:188} INFO - news-bucket-etlraw/raw_news_2024-11-11.csv
+[2024-11-11T15:41:33.957+0000] {logging_mixin.py:188} INFO - Transformed raw_df:
+[2024-11-11T15:41:33.962+0000] {logging_mixin.py:188} INFO -       publisher                                        news_string
+0     guardian  Kremlin says reports of Trump-Putin call about...
+1     guardian  Israeli minister says ‘certain progress’ on Le...
+2     guardian  Trump appoints Tom Homan as ‘border czar’ and ...
+3     guardian  Huge crime network forging Banksy, Warhol and ...
+4     guardian  Women walking Camino de Santiago speak of ‘ter...
+..         ...                                                ...
+395  aljazeera                                                NaN
+396  aljazeera                                                NaN
+397  aljazeera                                                NaN
+398  aljazeera                                                NaN
+399  aljazeera                                                NaN
+
+[400 rows x 2 columns]
+[2024-11-11T15:41:33.965+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.965+0000] {logging_mixin.py:188} INFO - Kremlin says reports of Trump-Putin call about Ukraine are ‘pure fiction’
+[2024-11-11T15:41:33.970+0000] {logging_mixin.py:188} WARNING - /opt/***/plugins/utils/transform_and_load.py:60 FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+[2024-11-11T15:41:33.971+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.971+0000] {logging_mixin.py:188} INFO - Israeli minister says ‘certain progress’ on Lebanon ceasefire talks but Hezbollah says it has not been involved 
+[2024-11-11T15:41:33.973+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.973+0000] {logging_mixin.py:188} INFO - Trump appoints Tom Homan as ‘border czar’ and Elise Stefanik as UN ambassador
+[2024-11-11T15:41:33.974+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.975+0000] {logging_mixin.py:188} INFO - Huge crime network forging Banksy, Warhol and Picasso uncovered in Italy
+[2024-11-11T15:41:33.976+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.976+0000] {logging_mixin.py:188} INFO - Women walking Camino de Santiago speak of ‘terrifying’ sexual harassment
+[2024-11-11T15:41:33.977+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.978+0000] {logging_mixin.py:188} INFO - Macron to attend ‘high-risk’ France-Israel football match
+[2024-11-11T15:41:33.979+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.979+0000] {logging_mixin.py:188} INFO - Starmer joins Macron in Paris on Armistice Day to show European solidarity after Trump re-election
+[2024-11-11T15:41:33.980+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.980+0000] {logging_mixin.py:188} INFO - German paper industry denies claims paper shortage could hinder election
+[2024-11-11T15:41:33.981+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.981+0000] {logging_mixin.py:188} INFO - Perugia mayor apologises for allowing Amanda Knox drama to be filmed in city
+[2024-11-11T15:41:33.983+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.983+0000] {logging_mixin.py:188} INFO - Magic Circle tries to track down first female member – who posed as a man
+[2024-11-11T15:41:33.984+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.985+0000] {logging_mixin.py:188} INFO - What happened in Amsterdam involving Israeli football fans?
+[2024-11-11T15:41:33.986+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.986+0000] {logging_mixin.py:188} INFO - I lost my six year old son when flash floods inundated Nova Scotia - This is climate breakdown
+[2024-11-11T15:41:33.987+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.987+0000] {logging_mixin.py:188} INFO - ‘I’m switched off’: frustration and fatigue as power cuts keep Ecuador in the dark
+[2024-11-11T15:41:33.988+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.989+0000] {logging_mixin.py:188} INFO - UN climate conference starts amid warnings 2024 on track to be hottest year ever
+[2024-11-11T15:41:33.990+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.990+0000] {logging_mixin.py:188} INFO - Developing world needs private finance for green transition, says Cop president
+[2024-11-11T15:41:33.991+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.991+0000] {logging_mixin.py:188} INFO - A ‘Cop of peace’? How can authoritarian, human rights-trashing Azerbaijan possibly host that? 
+[2024-11-11T15:41:33.992+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.992+0000] {logging_mixin.py:188} INFO - Cop29: which climate finance ideas are most likely to work?
+[2024-11-11T15:41:33.993+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.993+0000] {logging_mixin.py:188} INFO - ‘James Brown kept cutting our stage time’ – how the Stylistics made You Make Me Feel Brand New
+[2024-11-11T15:41:33.994+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.994+0000] {logging_mixin.py:188} INFO - Gladiator II review – Paul Mescal slays in Ridley Scott’s gobsmacking reboot
+[2024-11-11T15:41:33.995+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.995+0000] {logging_mixin.py:188} INFO - ‘It gets more and more confused’: can AI replace translators?
+[2024-11-11T15:41:33.996+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.996+0000] {logging_mixin.py:188} INFO - PlayStation 5 Pro: is Sony’s console upgrade worth £700?
+[2024-11-11T15:41:33.997+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.997+0000] {logging_mixin.py:188} INFO - Even among artists in exile, the myth of Russian cultural supremacy lives on
+[2024-11-11T15:41:33.998+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.998+0000] {logging_mixin.py:188} INFO - One bite of chocolate led me to reinvent myself at 62
+[2024-11-11T15:41:33.999+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:33.999+0000] {logging_mixin.py:188} INFO - Caesar the goldfish, who meant as much to me as any dog
+[2024-11-11T15:41:34.000+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.000+0000] {logging_mixin.py:188} INFO - Alternative comedian Joe Kent-Walters: ‘I used to do a strip tease with carrier bags’
+[2024-11-11T15:41:34.001+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.001+0000] {logging_mixin.py:188} INFO - Billionaires like Elon Musk don’t just think they’re better than the rest of us – they hate us
+[2024-11-11T15:41:34.002+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.002+0000] {logging_mixin.py:188} INFO - Not changing course on Gaza was a colossal mistake by Kamala Harris
+[2024-11-11T15:41:34.003+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.003+0000] {logging_mixin.py:188} INFO - Far-right leaders are winning across the globe. Blaming ‘the economy’ or ‘the left-behinds’ won’t cut it
+[2024-11-11T15:41:34.004+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.004+0000] {logging_mixin.py:188} INFO - One thing I’m sure of: Harris ignored voters’ anger over Gaza, and it cost the Democrats dear
+[2024-11-11T15:41:34.005+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.005+0000] {logging_mixin.py:188} INFO - Trump didn’t just win. He expanded his voter base
+[2024-11-11T15:41:34.006+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.006+0000] {logging_mixin.py:188} INFO - First came the bots, then came the bosses - we’re entering Musk and Zuck’s new era of disinformation
+[2024-11-11T15:41:34.007+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.007+0000] {logging_mixin.py:188} INFO - Referee Coote suspended over apparent video of foul-mouthed Klopp rant
+[2024-11-11T15:41:34.008+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.008+0000] {logging_mixin.py:188} INFO - Ruud routs Alcaraz in straight sets at ATP Finals
+[2024-11-11T15:41:34.009+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.009+0000] {logging_mixin.py:188} INFO - Premier League: 10 talking points from the latest action
+[2024-11-11T15:41:34.010+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.010+0000] {logging_mixin.py:188} INFO - What kind of host will Trump be for the World Cup and Olympics?
+[2024-11-11T15:41:34.011+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.012+0000] {logging_mixin.py:188} INFO - Tyson v Paul is the apex event of content masquerading as sport
+[2024-11-11T15:41:34.012+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.013+0000] {logging_mixin.py:188} INFO - Millerntor masterstroke wins admirers despite St Pauli's defeat
+[2024-11-11T15:41:34.013+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.014+0000] {logging_mixin.py:188} INFO - Calhanoglu’s penalty miss shows nothing is certain in title race
+[2024-11-11T15:41:34.014+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.015+0000] {logging_mixin.py:188} INFO - ‘We all can do it,’ says 88-year-old after completing 12th Athens Marathon
+[2024-11-11T15:41:34.016+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.016+0000] {logging_mixin.py:188} INFO - EPA staff fear Trump will destroy how it protects Americans from pollution
+[2024-11-11T15:41:34.017+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.017+0000] {logging_mixin.py:188} INFO - Trump 2.0 could make even the most optimistic climate observers cynical - but it’s not the whole story
+[2024-11-11T15:41:34.018+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.018+0000] {logging_mixin.py:188} INFO - Philippines braced for landslides as fourth cyclone in three weeks hits
+[2024-11-11T15:41:34.019+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.019+0000] {logging_mixin.py:188} INFO - Key terms for this year’s climate conference in Azerbaijan
+[2024-11-11T15:41:34.020+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.020+0000] {logging_mixin.py:188} INFO - ‘Mass deportations would disrupt the food chain’: Californians warn of ripple effect of Trump threat
+[2024-11-11T15:41:34.021+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.021+0000] {logging_mixin.py:188} INFO - Former Harris aide suggests Biden resign so she can serve as president
+[2024-11-11T15:41:34.022+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.022+0000] {logging_mixin.py:188} INFO - What is voter certification – the process that Trump targeted in 2020?
+[2024-11-11T15:41:34.023+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.023+0000] {logging_mixin.py:188} INFO - Black women on what Harris’s loss says about the US
+[2024-11-11T15:41:34.024+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.024+0000] {logging_mixin.py:188} INFO - Bishop calls for Justin Welby to resign over failure to pursue serial abuser
+[2024-11-11T15:41:34.025+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.025+0000] {logging_mixin.py:188} INFO - Bitcoin price tops $82,000 for first time amid ‘Trump pump’
+[2024-11-11T15:41:34.026+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.026+0000] {logging_mixin.py:188} INFO - ‘I was a fool’: Art Garfunkel describes tearful reunion with Paul Simon 
+[2024-11-11T15:41:34.027+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.027+0000] {logging_mixin.py:188} INFO - Global biodiversity offsetting doesn’t work – keep schemes local, say experts
+[2024-11-11T15:41:34.028+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.028+0000] {logging_mixin.py:188} INFO - Badenoch: it’s ‘disappointing’ it took ITV drama to speed up Post Office payouts
+[2024-11-11T15:41:34.029+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.029+0000] {logging_mixin.py:188} INFO - Japan’s parliament re-elects PM Shigeru Ishiba despite bruising election result
+[2024-11-11T15:41:34.030+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.030+0000] {logging_mixin.py:188} INFO - 100,000 students join 50km night-time bike ride in search of good soup dumplings
+[2024-11-11T15:41:34.031+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.031+0000] {logging_mixin.py:188} INFO - Interim prime minister fired as security crisis mounts
+[2024-11-11T15:41:34.032+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.033+0000] {logging_mixin.py:188} INFO - Extreme weather cost $2tn globally over past decade, report finds
+[2024-11-11T15:41:34.033+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.034+0000] {logging_mixin.py:188} INFO - Book published in 1899 returned 50 years overdue to Massachusetts library
+[2024-11-11T15:41:34.034+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.035+0000] {logging_mixin.py:188} INFO - Final reckoning? Trailer for Mission: Impossible 8 suggests end to franchise
+[2024-11-11T15:41:34.035+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.036+0000] {logging_mixin.py:188} INFO - ‘In China, builders don’t look at drawings’: the architect challenging his country’s rampant urban obsession
+[2024-11-11T15:41:34.037+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.037+0000] {logging_mixin.py:188} INFO - Percival Everett and Samantha Harvey favourites to win 2024 Booker prize
+[2024-11-11T15:41:34.038+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.038+0000] {logging_mixin.py:188} INFO - ‘Two of the best songwriters Australia has ever produced’: punk pioneers the Saints return
+[2024-11-11T15:41:34.039+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.039+0000] {logging_mixin.py:188} INFO - Artist Kenny Scharf: ‘I’m carrying the torch for friends who couldn’t keep it going’
+[2024-11-11T15:41:34.040+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.040+0000] {logging_mixin.py:188} INFO - The Elements of Marie Curie by Dava Sobel review – the great scientist who created her own school
+[2024-11-11T15:41:34.041+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.041+0000] {logging_mixin.py:188} INFO - Is it true that … starting Botox in your 20s will stop you getting wrinkles?
+[2024-11-11T15:41:34.042+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.042+0000] {logging_mixin.py:188} INFO - Rukmini Iyer’s quick and easy recipe for chipotle mushroom tacos
+[2024-11-11T15:41:34.043+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.043+0000] {logging_mixin.py:188} INFO - Amy Poon’s recipe for golden pan-seared fish with ginger and spring onions
+[2024-11-11T15:41:34.044+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.044+0000] {logging_mixin.py:188} INFO - The Basque Country nature reserve at risk from Guggenheim expansion plans
+[2024-11-11T15:41:34.045+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.045+0000] {logging_mixin.py:188} INFO - From winter to watching sex scenes with your parents
+[2024-11-11T15:41:34.046+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.046+0000] {logging_mixin.py:188} INFO - Can you solve it? The knotty problem of Paddington in Peru
+[2024-11-11T15:41:34.047+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.047+0000] {logging_mixin.py:188} INFO - Share which issues have shaped your vote the most
+[2024-11-11T15:41:34.048+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.048+0000] {logging_mixin.py:188} INFO - Have you been affected by flooding?
+[2024-11-11T15:41:34.049+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.049+0000] {logging_mixin.py:188} INFO - Do you still live with your ex?
+[2024-11-11T15:41:34.050+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.050+0000] {logging_mixin.py:188} INFO - How have you been affected by the recent violence?
+[2024-11-11T15:41:34.051+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.051+0000] {logging_mixin.py:188} INFO - ‘I feared for my life’: stories of sexual harassment on the Camino de Santiago
+[2024-11-11T15:41:34.052+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.052+0000] {logging_mixin.py:188} INFO - Rafael Barrett: neglected crusader for oppressed Paraguayans finally gets his place in the sun
+[2024-11-11T15:41:34.053+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.053+0000] {logging_mixin.py:188} INFO - ‘I can hear dry-retching from inside’: queuing for hours to smell Geelong’s corpse plant
+[2024-11-11T15:41:34.054+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.054+0000] {logging_mixin.py:188} INFO - Kamala Harris is just the latest victim of global trend to oust incumbents
+[2024-11-11T15:41:34.055+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.055+0000] {logging_mixin.py:188} INFO - ‘I hate lying to her’: US couples on voting against their partners’ candidates
+[2024-11-11T15:41:34.056+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.057+0000] {logging_mixin.py:188} INFO - ‘The movement is not over’: leaders of Uncommitted look ahead at organizing during Trump term
+[2024-11-11T15:41:34.057+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.058+0000] {logging_mixin.py:188} INFO - ‘I feared for my life’: stories of sexual harassment on the Camino de Santiago
+[2024-11-11T15:41:34.058+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.059+0000] {logging_mixin.py:188} INFO - ‘We’ve done everything else, but haven’t had penetrative sex, because he’s very religious’
+[2024-11-11T15:41:34.059+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.060+0000] {logging_mixin.py:188} INFO - ‘The best advice I’ve ever been given’: celebrities share their wisdom
+[2024-11-11T15:41:34.061+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.061+0000] {logging_mixin.py:188} INFO - Crypto trader killed in apparent assassination at São Paulo airport
+[2024-11-11T15:41:34.062+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.062+0000] {logging_mixin.py:188} INFO - Brighton stun Manchester City and Liverpool go five clear – Football Weekly
+[2024-11-11T15:41:34.063+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.063+0000] {logging_mixin.py:188} INFO - Has poppymania gone too far? – podcast
+[2024-11-11T15:41:34.064+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.064+0000] {logging_mixin.py:188} INFO - Trump, Cop29 and Ukraine – Politics Weekly Westminster
+[2024-11-11T15:41:34.064+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.065+0000] {logging_mixin.py:188} INFO - Finding one trillion dollars at Cop29 – podcast
+[2024-11-11T15:41:34.065+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.066+0000] {logging_mixin.py:188} INFO - ‘My lips and cheeks caved in’ – when filler removal goes wrong, Marina Hyde on Trump-based amnesia, and my husband the conspiracy theorist– podcast
+[2024-11-11T15:41:34.067+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.067+0000] {logging_mixin.py:188} INFO - Justin McCurry's day of eating only Japanese convenience store food
+[2024-11-11T15:41:34.068+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.068+0000] {logging_mixin.py:188} INFO - Why America voted for Donald Trump (again)
+[2024-11-11T15:41:34.069+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.069+0000] {logging_mixin.py:188} INFO - How the night of Trump's presidential comeback unfolded 
+[2024-11-11T15:41:34.070+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.070+0000] {logging_mixin.py:188} INFO - How US politics got so insulting (Hint: it didn't start with Trump)
+[2024-11-11T15:41:34.071+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.071+0000] {logging_mixin.py:188} INFO - Why are North Korean soldiers entering Russia's war against Ukraine? 
+[2024-11-11T15:41:34.072+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.072+0000] {logging_mixin.py:188} INFO - Elon Musk’s money and the battle for Pennsylvania
+[2024-11-11T15:41:34.073+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.073+0000] {logging_mixin.py:188} INFO - Armistice Day and carnival season in Europe
+[2024-11-11T15:41:34.074+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.074+0000] {logging_mixin.py:188} INFO - The MTV Europe Music Awards 2024
+[2024-11-11T15:41:34.075+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.075+0000] {logging_mixin.py:188} INFO - ‘Every hammer blow makes a difference’: handcrafting whisky stills in Scotland – photo essay
+[2024-11-11T15:41:34.076+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.076+0000] {logging_mixin.py:188} INFO - A twisted tale of strange sisters: Hervé Guibert’s photographs of his reclusive great-aunts in 1970s Paris
+[2024-11-11T15:41:34.077+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.078+0000] {logging_mixin.py:188} INFO - Head On portrait prize
+[2024-11-11T15:41:34.078+0000] {logging_mixin.py:188} INFO - guardian
+[2024-11-11T15:41:34.078+0000] {logging_mixin.py:188} INFO - Marvin E Newman’s Californian dreamers
+[2024-11-11T15:41:34.079+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.080+0000] {logging_mixin.py:188} INFO - As Donald Trump Threatens a Wider Trade War, the U.S. Confronts a Changed China
+[2024-11-11T15:41:34.081+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.081+0000] {logging_mixin.py:188} INFO - How Trump Divides Chinese Who Aspire to Democracy
+[2024-11-11T15:41:34.082+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.082+0000] {logging_mixin.py:188} INFO - Will Trump Rekindle a Bromance With Kim Jong-un? South Koreans Worry.
+[2024-11-11T15:41:34.083+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.083+0000] {logging_mixin.py:188} INFO - Trump Offers Elise Stefanik Role as U.N. Ambassador
+[2024-11-11T15:41:34.084+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.084+0000] {logging_mixin.py:188} INFO - Donald Trump Names Former Immigration Official as His ‘Border Czar’
+[2024-11-11T15:41:34.085+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.085+0000] {logging_mixin.py:188} INFO - Unions Bet Big on Kamala Harris. Now They’re Bracing for Consequences.
+[2024-11-11T15:41:34.086+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.086+0000] {logging_mixin.py:188} INFO - Trump’s Gains Among Latinos Push a Civil Rights Group to Reflect on Its Past
+[2024-11-11T15:41:34.087+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.087+0000] {logging_mixin.py:188} INFO - Trump Transition Stalls Over Ethics Code, and Russia Prepares a New Offensive
+[2024-11-11T15:41:34.088+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.088+0000] {logging_mixin.py:188} INFO - Iran Debates Whether It Could Make a Deal With Trump
+[2024-11-11T15:41:34.089+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.089+0000] {logging_mixin.py:188} INFO - Iran and Trump Are Front of Mind at Saudi Summit
+[2024-11-11T15:41:34.090+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.090+0000] {logging_mixin.py:188} INFO - Israel Orders New Evacuations in Lebanon as Diplomacy Ramps Up
+[2024-11-11T15:41:34.091+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.092+0000] {logging_mixin.py:188} INFO - Caught Between Wars, Syrian Refugees in Lebanon Return Home
+[2024-11-11T15:41:34.093+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.093+0000] {logging_mixin.py:188} INFO - Israel’s Military Announces Small Expansion of Gaza Humanitarian Zone
+[2024-11-11T15:41:34.094+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.094+0000] {logging_mixin.py:188} INFO - Chaos, Provocations and Violence: How Attacks on Israeli Soccer Fans Unfolded
+[2024-11-11T15:41:34.095+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.095+0000] {logging_mixin.py:188} INFO - Mortgage Rates Fell, Then Rose. What Comes Next?
+[2024-11-11T15:41:34.096+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.096+0000] {logging_mixin.py:188} INFO - A Potential Fight Over the Fed’s Future Ramps Up
+[2024-11-11T15:41:34.097+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.097+0000] {logging_mixin.py:188} INFO - Bitcoin Sets Another Record as Bullish Bets Continue
+[2024-11-11T15:41:34.098+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.098+0000] {logging_mixin.py:188} INFO - He Made a Daring Escape From China. Then His Real Troubles Began.
+[2024-11-11T15:41:34.099+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.099+0000] {logging_mixin.py:188} INFO - Trump’s Return Hangs Over U.N. Climate Negotiations
+[2024-11-11T15:41:34.100+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.100+0000] {logging_mixin.py:188} INFO - Army Private Is Identified Almost 80 Years After Death in World War II
+[2024-11-11T15:41:34.101+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.101+0000] {logging_mixin.py:188} INFO - How Armistice Day Became Veterans Day in the U.S.
+[2024-11-11T15:41:34.102+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.102+0000] {logging_mixin.py:188} INFO - He’s Eric Adams’s Third N.Y.P.D. Boss. Does He Have Staying Power?
+[2024-11-11T15:41:34.103+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.103+0000] {logging_mixin.py:188} INFO - After Trump’s Victory, Mayoral Candidates Unite Against Adams and Cuomo
+[2024-11-11T15:41:34.104+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.104+0000] {logging_mixin.py:188} INFO - Who Has the Best View of the Chrysler Building? These Bees.
+[2024-11-11T15:41:34.105+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.105+0000] {logging_mixin.py:188} INFO - The Trump Era Never Really Ended
+[2024-11-11T15:41:34.106+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.106+0000] {logging_mixin.py:188} INFO - George W. Bush ‘Owes Me a Beer, at the Least’
+[2024-11-11T15:41:34.107+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.107+0000] {logging_mixin.py:188} INFO - Kamala Harris Could Have Won. Here’s a Key Reason Why She Didn’t.
+[2024-11-11T15:41:34.108+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.108+0000] {logging_mixin.py:188} INFO - Against Panic: A Survival Kit
+[2024-11-11T15:41:34.109+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.109+0000] {logging_mixin.py:188} INFO - Quietly, America Is Losing the Loyalty of Its Friends
+[2024-11-11T15:41:34.110+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.110+0000] {logging_mixin.py:188} INFO - Trump and Musk: The Bromance That Cannot Last
+[2024-11-11T15:41:34.111+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.111+0000] {logging_mixin.py:188} INFO - To Understand Egypt, Meet My Friend, a Political Prisoner
+[2024-11-11T15:41:34.112+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.112+0000] {logging_mixin.py:188} INFO - Trump’s Civil Service Plan: ‘A Train Wreck You Can See Coming’
+[2024-11-11T15:41:34.113+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.113+0000] {logging_mixin.py:188} INFO - How I Discovered I Was Stolen at Birth
+[2024-11-11T15:41:34.114+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.114+0000] {logging_mixin.py:188} INFO - The Democratic Blind Spot That Wrecked 2024
+[2024-11-11T15:41:34.115+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.115+0000] {logging_mixin.py:188} INFO - Light in the Shadow of a Diagnosis
+[2024-11-11T15:41:34.116+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.116+0000] {logging_mixin.py:188} INFO - Israel Keeps Attacking Journalists. When Will the U.S. Intervene?
+[2024-11-11T15:41:34.117+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.117+0000] {logging_mixin.py:188} INFO - When Did Liberals Become So Comfortable With War?
+[2024-11-11T15:41:34.118+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.118+0000] {logging_mixin.py:188} INFO - A Sex Strike Is a Losing Strategy for American Women
+[2024-11-11T15:41:34.119+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.119+0000] {logging_mixin.py:188} INFO - I Refuse to Cede My Love of Fitness to the Far Right
+[2024-11-11T15:41:34.120+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.120+0000] {logging_mixin.py:188} INFO - Why Shakespeare Remains Relevant Today
+[2024-11-11T15:41:34.121+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.121+0000] {logging_mixin.py:188} INFO - The Democrats Who Won
+[2024-11-11T15:41:34.122+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.122+0000] {logging_mixin.py:188} INFO - Shigeru Ishiba Wins Vote to Remain as Japan’s Prime Minister
+[2024-11-11T15:41:34.123+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.123+0000] {logging_mixin.py:188} INFO - Jamie Oliver Pulls Children’s Book Amid Criticism of Insensitivity
+[2024-11-11T15:41:34.124+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.124+0000] {logging_mixin.py:188} INFO - The Impromptu Nighttime Bike Rides That Drew Thousands of Chinese Students
+[2024-11-11T15:41:34.125+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.125+0000] {logging_mixin.py:188} INFO - How a Colombian Influencer Made Recycling Cool
+[2024-11-11T15:41:34.126+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.126+0000] {logging_mixin.py:188} INFO - A Mainstay of the Bloomsbury Group, With a Show of Her Own
+[2024-11-11T15:41:34.127+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.127+0000] {logging_mixin.py:188} INFO - Wordle
+[2024-11-11T15:41:34.127+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.128+0000] {logging_mixin.py:188} INFO - Connections
+[2024-11-11T15:41:34.128+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.129+0000] {logging_mixin.py:188} INFO - Strands
+[2024-11-11T15:41:34.129+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.130+0000] {logging_mixin.py:188} INFO - Spelling Bee
+[2024-11-11T15:41:34.130+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.130+0000] {logging_mixin.py:188} INFO - The Crossword
+[2024-11-11T15:41:34.131+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.131+0000] {logging_mixin.py:188} INFO - The Mini Crossword
+[2024-11-11T15:41:34.132+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.132+0000] {logging_mixin.py:188} INFO - The Chinese economy is more dependent on exports, making tariffs more potent, yet it’s less reliant on American markets and increasingly bent on self-sufficiency.
+[2024-11-11T15:41:34.133+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.133+0000] {logging_mixin.py:188} INFO - A new HBO documentary about opposition to autocrats says a lot about the complex politics the president-elect inspires for people fleeing countries, our columnist writes.
+[2024-11-11T15:41:34.134+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.135+0000] {logging_mixin.py:188} INFO - In one of his first cabinet-level personnel decisions, President-elect Trump has chosen the Republican member of Congress from New York to represent the U.S.
+[2024-11-11T15:41:34.135+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.136+0000] {logging_mixin.py:188} INFO - Thomas Homan, a senior immigration official in the last Trump administration, has said that workplace raids would restart under the new government.
+[2024-11-11T15:41:34.137+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.137+0000] {logging_mixin.py:188} INFO - Some in Iran’s new, more moderate government think Donald Trump’s win provides an opportunity to make a lasting deal with the United States.
+[2024-11-11T15:41:34.138+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.138+0000] {logging_mixin.py:188} INFO - Leaders from across the Arab and Muslim world were in Riyadh for a meeting officially convened to discuss the fighting in Gaza and Lebanon.
+[2024-11-11T15:41:34.139+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.139+0000] {logging_mixin.py:188} INFO - Here’s what we know about the violence in Amsterdam last week, which included antisemitic assaults on visiting fans and incendiary chants by some Israelis.
+[2024-11-11T15:41:34.140+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.140+0000] {logging_mixin.py:188} INFO - Many would-be home buyers are still hoping for mortgage rates to come down as the Federal Reserve cuts interest rates. How much they will fall is unclear.
+[2024-11-11T15:41:34.141+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.141+0000] {logging_mixin.py:188} INFO - As allies of Donald Trump, including Elon Musk, endorse ending the Federal Reserve’s independence, its chair is said to be ready to battle in court.
+[2024-11-11T15:41:34.142+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.143+0000] {logging_mixin.py:188} INFO - Hasan Imam fled brutal repression — only to discover, as so many Uyghur refugees have, that China’s power stretches far beyond its borders.
+[2024-11-11T15:41:34.143+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.144+0000] {logging_mixin.py:188} INFO - The election of Donald Trump is sapping momentum from global climate talks at COP29 as diplomats brace for his pro-fossil-fuel agenda.
+[2024-11-11T15:41:34.145+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.145+0000] {logging_mixin.py:188} INFO - Jeremiah P. Mahoney had been missing in action since 1945. His remains will be interred in Arlington National Cemetery in 2025.
+[2024-11-11T15:41:34.146+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.146+0000] {logging_mixin.py:188} INFO - Thomas Donlon wants the job of police commissioner permanently, and he’s been acting as though he has it as he navigates friction and uncertainty.
+[2024-11-11T15:41:34.147+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.147+0000] {logging_mixin.py:188} INFO - Unseating Eric Adams and stopping Andrew Cuomo were hot topics at a gathering in Puerto Rico, as New York Democrats reflected on the impact of Donald Trump’s win.
+[2024-11-11T15:41:34.148+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.148+0000] {logging_mixin.py:188} INFO - On and around some of New York City’s most famous buildings, beehives are buzzing.
+[2024-11-11T15:41:34.149+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.149+0000] {logging_mixin.py:188} INFO - We’re covering this year’s successful Democratic campaigns.
+[2024-11-11T15:41:34.150+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.150+0000] {logging_mixin.py:188} INFO - Parliament voted to stick with Mr. Ishiba, who will lead a minority government after his party suffered heavy losses in an election last month.
+[2024-11-11T15:41:34.151+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.151+0000] {logging_mixin.py:188} INFO - The celebrity chef’s second children’s book, “Billy and the Epic Escape,” faced accusations that it stereotyped First Nations people in Australia.
+[2024-11-11T15:41:34.152+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.152+0000] {logging_mixin.py:188} INFO - Making the five-hour ride between two Chinese cities became a craze among young people. But as their numbers swelled, the authorities shut it down.
+[2024-11-11T15:41:34.153+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.154+0000] {logging_mixin.py:188} INFO - The character Marce the Recycler has created an enthusiastic dedication to proper waste separation among her devoted fans.
+[2024-11-11T15:41:34.154+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.155+0000] {logging_mixin.py:188} INFO - Vanessa Bell is often best remembered for the creative milieu she cultivated, but a new exhibition makes a case for her as a groundbreaking artist.
+[2024-11-11T15:41:34.156+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.156+0000] {logging_mixin.py:188} INFO - Guess the 5-letter word with 6 chances.
+[2024-11-11T15:41:34.157+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.157+0000] {logging_mixin.py:188} INFO - Group words that share a common thread.
+[2024-11-11T15:41:34.158+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.158+0000] {logging_mixin.py:188} INFO - Uncover hidden words and reveal the theme.
+[2024-11-11T15:41:34.159+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.159+0000] {logging_mixin.py:188} INFO - How many words can you make with 7 letters?
+[2024-11-11T15:41:34.160+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.160+0000] {logging_mixin.py:188} INFO - Get clued in with wordplay, every day.
+[2024-11-11T15:41:34.160+0000] {logging_mixin.py:188} INFO - nytimes
+[2024-11-11T15:41:34.161+0000] {logging_mixin.py:188} INFO - Take a break from the news. Solve this bite-sized puzzle in just a few minutes.
+[2024-11-11T15:41:34.162+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.162+0000] {logging_mixin.py:188} INFO - US envoy vows to fight climate change with 'passion and belief' despite Trump win
+[2024-11-11T15:41:34.163+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.163+0000] {logging_mixin.py:188} INFO - Why climate talks are so hard to translate
+[2024-11-11T15:41:34.164+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.164+0000] {logging_mixin.py:188} INFO - US envoy vows to fight climate change with 'passion and belief' despite Trump win
+[2024-11-11T15:41:34.165+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.165+0000] {logging_mixin.py:188} INFO - Why climate talks are so hard to translate
+[2024-11-11T15:41:34.166+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.166+0000] {logging_mixin.py:188} INFO - Get out of our way, Trump's 'border tsar' tells Democrats fighting deportation plans
+[2024-11-11T15:41:34.167+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.167+0000] {logging_mixin.py:188} INFO - Russia denies Trump call with Putin urging restraint in Ukraine
+[2024-11-11T15:41:34.168+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.168+0000] {logging_mixin.py:188} INFO - Macron and Starmer vow 'unwavering' Ukraine support
+[2024-11-11T15:41:34.169+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.169+0000] {logging_mixin.py:188} INFO - China roads blocked by thousands of cyclists in night quest for dumplings
+[2024-11-11T15:41:34.170+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.170+0000] {logging_mixin.py:188} INFO - Gladiator II: 'The best popcorn film of the year' ★★★★☆
+[2024-11-11T15:41:34.171+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.171+0000] {logging_mixin.py:188} INFO - Europe wants you to travel by train - but why is it so expensive?
+[2024-11-11T15:41:34.172+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.172+0000] {logging_mixin.py:188} INFO - 'That was the greatest day of all our lives': The migrants who passed through Ellis Island
+[2024-11-11T15:41:34.173+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.173+0000] {logging_mixin.py:188} INFO - Rita Ora becomes tearful remembering Liam Payne
+[2024-11-11T15:41:34.174+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.174+0000] {logging_mixin.py:188} INFO - Five must-try Turkish dishes with food guru Refika Birgül
+[2024-11-11T15:41:34.175+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.176+0000] {logging_mixin.py:188} INFO - Runner with Down's syndrome dances through marathon
+[2024-11-11T15:41:34.177+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.177+0000] {logging_mixin.py:188} INFO - What meteor showers signified in ancient China
+[2024-11-11T15:41:34.178+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.178+0000] {logging_mixin.py:188} INFO - Meet the AI robot whose artwork sold for over $1m
+[2024-11-11T15:41:34.179+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.179+0000] {logging_mixin.py:188} INFO - Strictly Come Dancing's 'spectacular' blackout dance moment
+[2024-11-11T15:41:34.180+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.180+0000] {logging_mixin.py:188} INFO - Protesters call on Valencia governor to resign after deadly floods
+[2024-11-11T15:41:34.181+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.181+0000] {logging_mixin.py:188} INFO - Holocaust survivor shares story of journey to Auschwitz
+[2024-11-11T15:41:34.182+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.182+0000] {logging_mixin.py:188} INFO - India says not nervous about working with Trump
+[2024-11-11T15:41:34.183+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.183+0000] {logging_mixin.py:188} INFO - Japan's Ishiba stays as PM despite election setback
+[2024-11-11T15:41:34.184+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.184+0000] {logging_mixin.py:188} INFO - ‘I lost nine teeth filming Squid Game’: BBC on set with show’s director
+[2024-11-11T15:41:34.185+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.185+0000] {logging_mixin.py:188} INFO - Jamie Oliver pulls 'offensive' children's book from sale
+[2024-11-11T15:41:34.186+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.186+0000] {logging_mixin.py:188} INFO - India's luxury airline Vistara flies into the sunset 
+[2024-11-11T15:41:34.187+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.187+0000] {logging_mixin.py:188} INFO - A croissant that's the star of a Polish parade
+[2024-11-11T15:41:34.188+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.188+0000] {logging_mixin.py:188} INFO - The diversion ploy to save Scotland's capercaillie
+[2024-11-11T15:41:34.189+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.189+0000] {logging_mixin.py:188} INFO - Subscribe to Future Earth 
+[2024-11-11T15:41:34.190+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.190+0000] {logging_mixin.py:188} INFO - Download the BBC app
+[2024-11-11T15:41:34.191+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.191+0000] {logging_mixin.py:188} INFO - Listen to The Global Story
+[2024-11-11T15:41:34.192+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.192+0000] {logging_mixin.py:188} INFO - News Briefing: Sign up to our newsletter
+[2024-11-11T15:41:34.192+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.193+0000] {logging_mixin.py:188} INFO - Register for a BBC account
+[2024-11-11T15:41:34.193+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.194+0000] {logging_mixin.py:188} INFO - The Essential List
+[2024-11-11T15:41:34.194+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.195+0000] {logging_mixin.py:188} INFO - Six Steps to Calm
+[2024-11-11T15:41:34.195+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.196+0000] {logging_mixin.py:188} INFO - Subscribe to Football Extra
+[2024-11-11T15:41:34.196+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.196+0000] {logging_mixin.py:188} INFO - In History
+[2024-11-11T15:41:34.197+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.197+0000] {logging_mixin.py:188} INFO - Trump appoints UN ambassador Elise Stefanik and border tsar Tom Homan
+[2024-11-11T15:41:34.198+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.198+0000] {logging_mixin.py:188} INFO - Disney cruise ship rescues four people from sinking catamaran
+[2024-11-11T15:41:34.199+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.199+0000] {logging_mixin.py:188} INFO - Teenage park ranger dies as wildfires burn in New York State 
+[2024-11-11T15:41:34.200+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.200+0000] {logging_mixin.py:188} INFO - Republicans close in on House. Here are races still to watch
+[2024-11-11T15:41:34.201+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.201+0000] {logging_mixin.py:188} INFO - Israeli strikes on north Lebanon and Gaza kill dozens, officials and rescuers say
+[2024-11-11T15:41:34.202+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.202+0000] {logging_mixin.py:188} INFO - Qatar suspends role as mediator between Israel and Hamas
+[2024-11-11T15:41:34.203+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.203+0000] {logging_mixin.py:188} INFO - Nearly 70% of Gaza war dead are women and children, UN says
+[2024-11-11T15:41:34.204+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.204+0000] {logging_mixin.py:188} INFO - Gaza’s top Islamic scholar issues fatwa criticising 7 October attack
+[2024-11-11T15:41:34.205+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.205+0000] {logging_mixin.py:188} INFO - Russia denies Trump call with Putin urging restraint in Ukraine
+[2024-11-11T15:41:34.206+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.206+0000] {logging_mixin.py:188} INFO - Macron and Starmer vow 'unwavering' Ukraine support
+[2024-11-11T15:41:34.207+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.207+0000] {logging_mixin.py:188} INFO - Ukrainian refugee hosts needed in Torbay
+[2024-11-11T15:41:34.208+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.209+0000] {logging_mixin.py:188} INFO - Refugee homes branded eyesore by nearby residents
+[2024-11-11T15:41:34.210+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.210+0000] {logging_mixin.py:188} INFO - Mauritius prime minister accepts 'huge defeat' in election
+[2024-11-11T15:41:34.211+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.211+0000] {logging_mixin.py:188} INFO - Europe marks Armistice Day with two-minute silence
+[2024-11-11T15:41:34.212+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.212+0000] {logging_mixin.py:188} INFO - Ryanair boss defends remarks on teachers after backlash
+[2024-11-11T15:41:34.213+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.213+0000] {logging_mixin.py:188} INFO - Man arrested on suspicion of murdering missing woman
+[2024-11-11T15:41:34.214+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.214+0000] {logging_mixin.py:188} INFO - Five must-try Turkish dishes with food guru Refika Birgül
+[2024-11-11T15:41:34.215+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.215+0000] {logging_mixin.py:188} INFO - Premier League referee Coote suspended over alleged video
+[2024-11-11T15:41:34.216+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.216+0000] {logging_mixin.py:188} INFO - Jackett steps down as Gillingham director of football
+[2024-11-11T15:41:34.217+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.217+0000] {logging_mixin.py:188} INFO - Glasgow forward trio drop out of Scotland squad
+[2024-11-11T15:41:34.218+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.218+0000] {logging_mixin.py:188} INFO - Slegers a 'breath of fresh air' at Arsenal - Mead
+[2024-11-11T15:41:34.219+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.219+0000] {logging_mixin.py:188} INFO - India's luxury airline Vistara flies into the sunset 
+[2024-11-11T15:41:34.220+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.220+0000] {logging_mixin.py:188} INFO - Bitcoin tops record $80,000 as Trump nears sweep of US Congress
+[2024-11-11T15:41:34.221+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.221+0000] {logging_mixin.py:188} INFO - Will new battery-powered trains replace diesel, and are they safe?
+[2024-11-11T15:41:34.222+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.222+0000] {logging_mixin.py:188} INFO - Why luxury cheese is being targeted by black market criminals
+[2024-11-11T15:41:34.223+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.223+0000] {logging_mixin.py:188} INFO - 'I was moderating hundreds of horrific and traumatising videos'
+[2024-11-11T15:41:34.224+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.224+0000] {logging_mixin.py:188} INFO - 'We're remembering the soldiers - my heroes'
+[2024-11-11T15:41:34.225+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.225+0000] {logging_mixin.py:188} INFO - 'A disabled South Park character from 24 years ago is getting me harassed today'
+[2024-11-11T15:41:34.226+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.227+0000] {logging_mixin.py:188} INFO - Can a two-letter word really change your life?
+[2024-11-11T15:41:34.228+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.228+0000] {logging_mixin.py:188} INFO - Somebody moved UK's oldest satellite, and no-one knows who or why
+[2024-11-11T15:41:34.229+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.229+0000] {logging_mixin.py:188} INFO - 'I felt broken until my autism diagnosis at 70'
+[2024-11-11T15:41:34.230+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.230+0000] {logging_mixin.py:188} INFO - DNA firm holding highly sensitive data 'vanishes' without warning
+[2024-11-11T15:41:34.231+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.231+0000] {logging_mixin.py:188} INFO - 'Sometimes people don't see me as the surgeon'
+[2024-11-11T15:41:34.232+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.232+0000] {logging_mixin.py:188} INFO - MTV EMAs: Eight bits of gossip we uncovered on the night
+[2024-11-11T15:41:34.233+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.233+0000] {logging_mixin.py:188} INFO - Rita Ora is tearful in tribute to Liam Payne at MTV Awards
+[2024-11-11T15:41:34.234+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.234+0000] {logging_mixin.py:188} INFO - Stars hit MTV Awards red carpet in Manchester
+[2024-11-11T15:41:34.235+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.235+0000] {logging_mixin.py:188} INFO - Mattel 'deeply regrets' porn site misprint on Wicked dolls
+[2024-11-11T15:41:34.236+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.236+0000] {logging_mixin.py:188} INFO - The climate warnings in 19th-Century paintings
+[2024-11-11T15:41:34.237+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.237+0000] {logging_mixin.py:188} INFO - AI artwork of Alan Turing sells for $1m
+[2024-11-11T15:41:34.238+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.238+0000] {logging_mixin.py:188} INFO - The rebel painter who ushered in a new era of Indian art
+[2024-11-11T15:41:34.239+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.239+0000] {logging_mixin.py:188} INFO - A look inside Michelangelo's 'secret room'
+[2024-11-11T15:41:34.240+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.240+0000] {logging_mixin.py:188} INFO - Five of Seville's best flamenco spots
+[2024-11-11T15:41:34.241+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.241+0000] {logging_mixin.py:188} INFO - An alternative way to see a hidden side of Venice
+[2024-11-11T15:41:34.242+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.242+0000] {logging_mixin.py:188} INFO - A drive into 'the most beautiful place on Earth'
+[2024-11-11T15:41:34.243+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.244+0000] {logging_mixin.py:188} INFO - A journey 400,000 years back in human history
+[2024-11-11T15:41:34.244+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.245+0000] {logging_mixin.py:188} INFO - 'Dying of thirst' as climate-driven floods mix with oil
+[2024-11-11T15:41:34.245+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.246+0000] {logging_mixin.py:188} INFO - Will rich countries pay for climate change?
+[2024-11-11T15:41:34.246+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.247+0000] {logging_mixin.py:188} INFO - The green activists who defied a dictatorship
+[2024-11-11T15:41:34.249+0000] {logging_mixin.py:188} INFO - bbc
+[2024-11-11T15:41:34.249+0000] {logging_mixin.py:188} INFO - Stargazing photographer shares sense of wonder
+[2024-11-11T15:41:34.250+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.251+0000] {logging_mixin.py:188} INFO - Israel orders displacements in southern Lebanon, pounds central Gaza
+[2024-11-11T15:41:34.251+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.252+0000] {logging_mixin.py:188} INFO - Live updates, 
+[2024-11-11T15:41:34.252+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.253+0000] {logging_mixin.py:188} INFO - Israel orders displacements in southern Lebanon, pounds central Gaza
+[2024-11-11T15:41:34.253+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.254+0000] {logging_mixin.py:188} INFO - Saudi Arabia’s MBS demands immediate end to Israel’s war in Gaza, Lebanon
+[2024-11-11T15:41:34.255+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.255+0000] {logging_mixin.py:188} INFO - Saudi Arabia’s MBS demands immediate end to Israel’s war in Gaza, Lebanon
+[2024-11-11T15:41:34.256+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.256+0000] {logging_mixin.py:188} INFO - Zelenskyy says Ukraine up against 50,000-strong force in Russia’s Kursk
+[2024-11-11T15:41:34.257+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.257+0000] {logging_mixin.py:188} INFO - COP29 Azerbaijan: What’s at stake at the 2024 global climate summit?
+[2024-11-11T15:41:34.258+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.258+0000] {logging_mixin.py:188} INFO - Kremlin says reports that Trump spoke to Putin are ‘pure fiction’
+[2024-11-11T15:41:34.259+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.259+0000] {logging_mixin.py:188} INFO - Trump picks Elise Stefanik as UN ambassador, Tom Homan as ‘border czar’
+[2024-11-11T15:41:34.260+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.260+0000] {logging_mixin.py:188} INFO - Israel sees ‘progress’ in ceasefire talks with Lebanon, but no deal yet
+[2024-11-11T15:41:34.261+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.261+0000] {logging_mixin.py:188} INFO - Mauritius PM Pravind Jugnauth concedes defeat in parliamentary election
+[2024-11-11T15:41:34.262+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.262+0000] {logging_mixin.py:188} INFO - Europe braces for a ‘swift and brutal transition’ to the world of Trump
+[2024-11-11T15:41:34.263+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.263+0000] {logging_mixin.py:188} INFO - ‘Voice of truth, justice and healing’: Canada remembers Murray Sinclair
+[2024-11-11T15:41:34.264+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.264+0000] {logging_mixin.py:188} INFO - US election results map 2024: How does it compare to 2020?
+[2024-11-11T15:41:34.265+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.265+0000] {logging_mixin.py:188} INFO - COP29 opens in Azerbaijan for talks centred on climate funding
+[2024-11-11T15:41:34.266+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.266+0000] {logging_mixin.py:188} INFO - Trump, Scholz discuss ‘return to peace in Europe’
+[2024-11-11T15:41:34.267+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.267+0000] {logging_mixin.py:188} INFO - Russia-Ukraine war: List of key events, day 990
+[2024-11-11T15:41:34.268+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.268+0000] {logging_mixin.py:188} INFO - Saudi Crown Prince urges Israel to end wars on Gaza, Lebanon
+[2024-11-11T15:41:34.269+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.269+0000] {logging_mixin.py:188} INFO - Israeli attack in Gaza siege zone kills 36 members of same family
+[2024-11-11T15:41:34.270+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.270+0000] {logging_mixin.py:188} INFO - Video: Palestinian woman creates clothes from blankets in Gaza
+[2024-11-11T15:41:34.271+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.271+0000] {logging_mixin.py:188} INFO - Dutch police arrest pro-Palestinian protesters in Amsterdam
+[2024-11-11T15:41:34.272+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.272+0000] {logging_mixin.py:188} INFO - Jamie Oliver pulls children’s book after outcry from Indigenous Australians
+[2024-11-11T15:41:34.273+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.273+0000] {logging_mixin.py:188} INFO - British celebrity chef says he is ‘devastated’ his fantasy book caused offence.
+[2024-11-11T15:41:34.274+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.274+0000] {logging_mixin.py:188} INFO - Jamie Oliver pulls children’s book after outcry from Indigenous Australians
+[2024-11-11T15:41:34.275+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.275+0000] {logging_mixin.py:188} INFO - British celebrity chef says he is ‘devastated’ his fantasy book caused offence.
+[2024-11-11T15:41:34.276+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.276+0000] {logging_mixin.py:188} INFO - Israel orders displacements in southern Lebanon, pounds central Gaza
+[2024-11-11T15:41:34.277+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.277+0000] {logging_mixin.py:188} INFO - Saudi Arabia’s MBS demands immediate end to Israel’s war in Gaza, Lebanon
+[2024-11-11T15:41:34.278+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.278+0000] {logging_mixin.py:188} INFO - US election results map 2024: How does it compare to 2020?
+[2024-11-11T15:41:34.279+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.279+0000] {logging_mixin.py:188} INFO - Trump picks Elise Stefanik as UN ambassador, Tom Homan as ‘border czar’
+[2024-11-11T15:41:34.280+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.280+0000] {logging_mixin.py:188} INFO - With US House election gains, Republicans close in on unified power
+[2024-11-11T15:41:34.281+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.281+0000] {logging_mixin.py:188} INFO - Mauritius PM Pravind Jugnauth concedes defeat in parliamentary election
+[2024-11-11T15:41:34.282+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.282+0000] {logging_mixin.py:188} INFO - Fact Check: Did 20 million Democratic votes ‘disappear’ in the US election?
+[2024-11-11T15:41:34.283+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.283+0000] {logging_mixin.py:188} INFO - No, Trump will not be worse than Biden for Palestine and the Middle East
+[2024-11-11T15:41:34.284+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.284+0000] {logging_mixin.py:188} INFO - Europe braces for a ‘swift and brutal transition’ to the world of Trump
+[2024-11-11T15:41:34.285+0000] {logging_mixin.py:188} INFO - aljazeera
+[2024-11-11T15:41:34.285+0000] {logging_mixin.py:188} INFO - Zelenskyy says Ukraine up against 50,000-strong force in Russia’s Kursk
+[2024-11-11T15:41:35.163+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-11-11T15:41:35.164+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-11T15:41:35.170+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_dag, task_id=transform_and_load_op, run_id=manual__2024-11-11T15:41:18.124891+00:00, execution_date=20241111T154118, start_date=20241111T154133, end_date=20241111T154135
+[2024-11-11T15:41:35.230+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-11-11T15:41:35.250+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-11T15:41:35.251+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
