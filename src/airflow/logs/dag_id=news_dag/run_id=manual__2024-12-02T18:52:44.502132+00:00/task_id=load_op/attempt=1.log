@@ -1,0 +1,85 @@
+[2024-12-02T18:53:05.295+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-02T18:53:05.308+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-02T18:52:44.502132+00:00 [queued]>
+[2024-12-02T18:53:05.313+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-02T18:52:44.502132+00:00 [queued]>
+[2024-12-02T18:53:05.314+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-02T18:53:05.324+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_op> on 2024-12-02 18:52:44.502132+00:00
+[2024-12-02T18:53:05.333+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=840) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-02T18:53:05.332+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'load_op', 'manual__2024-12-02T18:52:44.502132+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpt3aw02ji']
+[2024-12-02T18:53:05.334+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask load_op
+[2024-12-02T18:53:05.334+0000] {standard_task_runner.py:64} INFO - Started process 849 to run task
+[2024-12-02T18:53:05.364+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.load_op manual__2024-12-02T18:52:44.502132+00:00 [running]> on host 3d14745ceaae
+[2024-12-02T18:53:05.415+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-12-02T18:52:44.502132+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-02T18:52:44.502132+00:00'
+[2024-12-02T18:53:05.416+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-02T18:53:05.435+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-12-02T18:53:06.909+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-12-02T18:53:06.911+0000] {base.py:84} INFO - Using connection ID 'gc_connection' for task execution.
+[2024-12-02T18:53:08.148+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:08.384+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:08.949+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:09.219+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:09.467+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:11.623+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:12.137+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:12.633+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:13.636+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:13.886+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:14.157+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:14.441+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:14.670+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:14.911+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:15.147+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:15.491+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:16.019+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:16.265+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:17.899+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:20.186+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:21.753+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:22.515+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:23.513+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:24.007+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:26.723+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:27.193+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:27.680+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:30.885+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:31.621+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:34.106+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:35.985+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:39.749+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:47.158+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:47.666+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:47.905+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:48.622+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:49.120+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:50.293+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:50.799+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:53:51.260+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:54:03.638+0000] {logging_mixin.py:188} INFO - Errors occurred while inserting rows: [{'index': 0, 'errors': [{'reason': 'invalid', 'location': 'news_string', 'debugInfo': '', 'message': 'no such field: news_string.'}]}]
+[2024-12-02T18:54:32.281+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-02T18:54:32.284+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils_shared/utils/load.py", line 74, in load
+    table_id = Variable.get("table_id_freq")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 143, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable table_id_freq does not exist'
+[2024-12-02T18:54:32.296+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=news_dag, task_id=load_op, run_id=manual__2024-12-02T18:52:44.502132+00:00, execution_date=20241202T185244, start_date=20241202T185305, end_date=20241202T185432
+[2024-12-02T18:54:32.308+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 7 for task load_op ('Variable table_id_freq does not exist'; 849)
+[2024-12-02T18:54:32.327+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-12-02T18:54:32.352+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-02T18:54:32.355+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,62 @@
+[2024-12-03T14:03:36.610+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T14:03:36.621+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-03T14:03:14.385233+00:00 [queued]>
+[2024-12-03T14:03:36.625+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-03T14:03:14.385233+00:00 [queued]>
+[2024-12-03T14:03:36.626+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-03T14:03:36.634+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_op> on 2024-12-03 14:03:14.385233+00:00
+[2024-12-03T14:03:36.640+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'load_op', 'manual__2024-12-03T14:03:14.385233+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpb934ez45']
+[2024-12-03T14:03:36.642+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1002) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T14:03:36.642+0000] {standard_task_runner.py:91} INFO - Job 20: Subtask load_op
+[2024-12-03T14:03:36.643+0000] {standard_task_runner.py:64} INFO - Started process 1013 to run task
+[2024-12-03T14:03:36.669+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.load_op manual__2024-12-03T14:03:14.385233+00:00 [running]> on host 6f562db0c9a5
+[2024-12-03T14:03:36.720+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T14:03:14.385233+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T14:03:14.385233+00:00'
+[2024-12-03T14:03:36.722+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T14:03:36.735+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-12-03T14:03:38.628+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-12-03T14:03:38.631+0000] {base.py:84} INFO - Using connection ID 'gc_connection' for task execution.
+[2024-12-03T14:04:54.770+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-12-03T14:04:54.772+0000] {base.py:84} INFO - Using connection ID 'gc_connection' for task execution.
+[2024-12-03T14:04:55.562+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T14:04:55.564+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils_shared/utils/load.py", line 86, in load
+    errors = bigquery_client.insert_rows_json(f"{project_id}.{dataset_id}.{table_id}", [row_data])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 3874, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 831, in _call_api
+    return call()
+           ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.NotFound: 404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ace-scarab-434612-r8/datasets/processed_news_dataset/tables/word_frequency_data/insertAll?prettyPrint=false: Not found: Table ace-scarab-434612-r8:processed_news_dataset.word_frequency_data
+[2024-12-03T14:04:55.578+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=news_dag, task_id=load_op, run_id=manual__2024-12-03T14:03:14.385233+00:00, execution_date=20241203T140314, start_date=20241203T140336, end_date=20241203T140455
+[2024-12-03T14:04:55.589+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 20 for task load_op (404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ace-scarab-434612-r8/datasets/processed_news_dataset/tables/word_frequency_data/insertAll?prettyPrint=false: Not found: Table ace-scarab-434612-r8:processed_news_dataset.word_frequency_data; 1013)
+[2024-12-03T14:04:55.623+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-12-03T14:04:55.638+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T14:04:55.641+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

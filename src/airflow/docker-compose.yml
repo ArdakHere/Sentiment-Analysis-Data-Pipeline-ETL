@@ -56,11 +56,14 @@ x-airflow-common:
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
+    PYTHONPATH: '/opt/airflow/utils_shared:/opt/airflow/dags'
+
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/utils_shared:/opt/airflow/utils_shared
     - ${AIRFLOW_PROJ_DIR:-.}/keys:/opt/airflow/keys
 
   user: "${AIRFLOW_UID:-50000}:0"
@@ -76,6 +79,7 @@ services:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
       POSTGRES_DB: airflow
+
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
@@ -105,6 +109,7 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler # add call to execute requirements.txt
+
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s
@@ -112,6 +117,7 @@ services:
       retries: 5
       start_period: 30s
     restart: always
+
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:

@@ -1,0 +1,60 @@
+[2024-12-03T15:59:23.818+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T15:59:23.828+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-03T15:58:56.802028+00:00 [queued]>
+[2024-12-03T15:59:23.833+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.load_op manual__2024-12-03T15:58:56.802028+00:00 [queued]>
+[2024-12-03T15:59:23.833+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-03T15:59:23.841+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_op> on 2024-12-03 15:58:56.802028+00:00
+[2024-12-03T15:59:23.849+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=5383) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T15:59:23.848+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'load_op', 'manual__2024-12-03T15:58:56.802028+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpavtj37w4']
+[2024-12-03T15:59:23.850+0000] {standard_task_runner.py:91} INFO - Job 40: Subtask load_op
+[2024-12-03T15:59:23.850+0000] {standard_task_runner.py:64} INFO - Started process 5392 to run task
+[2024-12-03T15:59:23.877+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.load_op manual__2024-12-03T15:58:56.802028+00:00 [running]> on host 6f562db0c9a5
+[2024-12-03T15:59:23.926+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T15:58:56.802028+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T15:58:56.802028+00:00'
+[2024-12-03T15:59:23.928+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T15:59:23.942+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-12-03T15:59:27.605+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2024-12-03T15:59:27.607+0000] {base.py:84} INFO - Using connection ID 'gc_connection' for task execution.
+[2024-12-03T15:59:30.650+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T15:59:30.652+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/utils_shared/utils/load.py", line 58, in load
+    errors = bigquery_client.insert_rows_json(f"{project_id}.{dataset_id}.{table_id}", [row_data])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 3874, in insert_rows_json
+    response = self._call_api(
+               ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 831, in _call_api
+    return call()
+           ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.NotFound: 404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ace-scarab-434612-r8/datasets/processed_news_dataset/tables/news_strings_data/insertAll?prettyPrint=false: Table 729993663934:processed_news_dataset.news_strings_data not found.
+[2024-12-03T15:59:30.667+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=news_dag, task_id=load_op, run_id=manual__2024-12-03T15:58:56.802028+00:00, execution_date=20241203T155856, start_date=20241203T155923, end_date=20241203T155930
+[2024-12-03T15:59:30.678+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 40 for task load_op (404 POST https://bigquery.googleapis.com/bigquery/v2/projects/ace-scarab-434612-r8/datasets/processed_news_dataset/tables/news_strings_data/insertAll?prettyPrint=false: Table 729993663934:processed_news_dataset.news_strings_data not found.; 5392)
+[2024-12-03T15:59:30.690+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-12-03T15:59:30.704+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T15:59:30.707+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

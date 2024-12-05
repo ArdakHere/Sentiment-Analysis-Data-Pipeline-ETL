@@ -1,12 +1,9 @@
-import os
-import sys
-
-import pendulum
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
+# sys.path.append('/opt/airflow/utils_shared')
 
-from utils.extract_and_load import extract
+from extract_and_load import extract_dag
 from utils.transform_and_load import transform
 from utils.load import load
 
@@ -18,7 +15,7 @@ with DAG(
 ) as dag:
     extract_and_load_raw = PythonOperator(
         task_id='extract_and_load_op',
-        python_callable=extract,
+        python_callable=extract_dag,
         provide_context=True
     )
     transform_and_load = PythonOperator(  # Loads the transformed data into temp storage S3
@@ -26,7 +23,7 @@ with DAG(
         python_callable=transform,
         provide_context=True
     )
-    load_op = PythonOperator( # Loads the transformed data from S3 into the database
+    load_op = PythonOperator(  # Loads the transformed data from S3 into the database
         task_id='load_op',
         python_callable=load,
         provide_context=True

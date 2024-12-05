@@ -1,0 +1,31 @@
+[2024-12-03T10:13:53.668+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T10:13:53.678+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: news_dag.transform_and_load_op manual__2024-12-03T10:13:40.881907+00:00 [queued]>
+[2024-12-03T10:13:53.683+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: news_dag.transform_and_load_op manual__2024-12-03T10:13:40.881907+00:00 [queued]>
+[2024-12-03T10:13:53.684+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-03T10:13:53.692+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_and_load_op> on 2024-12-03 10:13:40.881907+00:00
+[2024-12-03T10:13:53.699+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'news_dag', 'transform_and_load_op', 'manual__2024-12-03T10:13:40.881907+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/etl_dag.py', '--cfg-path', '/tmp/tmpsyymux9x']
+[2024-12-03T10:13:53.701+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask transform_and_load_op
+[2024-12-03T10:13:53.700+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1945) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T10:13:53.702+0000] {standard_task_runner.py:64} INFO - Started process 1954 to run task
+[2024-12-03T10:13:53.729+0000] {task_command.py:426} INFO - Running <TaskInstance: news_dag.transform_and_load_op manual__2024-12-03T10:13:40.881907+00:00 [running]> on host 6f562db0c9a5
+[2024-12-03T10:13:53.781+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='news_dag' AIRFLOW_CTX_TASK_ID='transform_and_load_op' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T10:13:40.881907+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T10:13:40.881907+00:00'
+[2024-12-03T10:13:53.783+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T10:13:53.801+0000] {base.py:84} INFO - Using connection ID 'aws_connection' for task execution.
+[2024-12-03T10:13:55.923+0000] {logging_mixin.py:188} WARNING - /opt/***/utils_shared/utils/transform_and_load.py:62 FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+[2024-12-03T10:13:57.018+0000] {logging_mixin.py:188} INFO - heyyyy
+[2024-12-03T10:13:57.026+0000] {logging_mixin.py:188} INFO -                                          news_string  ...   timestamp
+0  Ceasefire on edge after deadly Israeli airstri...  ...  2024-12-03
+1  Trump in Paris: president-elect set to attend ...  ...  2024-12-03
+2  Vietnamese tycoon faces scramble to raise bill...  ...  2024-12-03
+3  Jaguar boss says it has shown ‘fearless creati...  ...  2024-12-03
+4  France at ‘turning point’ after no-confidence ...  ...  2024-12-03
+
+[5 rows x 6 columns]
+[2024-12-03T10:13:57.098+0000] {logging_mixin.py:188} INFO - [('biden', 19), ('trump', 18), ('ukraine', 12), ('war', 11), ('us', 10), ('new', 9), ('pay', 9), ('pardon', 9), ('gaza', 9), ('says', 8), ('world', 8), ('uk', 8), ('government', 7), ('musk', 7), ('hunter', 7), ('deal', 7), ('france', 6), ('family', 6), ('review', 6), ('son', 6)]
+[2024-12-03T10:13:57.696+0000] {logging_mixin.py:188} INFO - Uploaded freq data
+[2024-12-03T10:13:57.730+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-12-03T10:13:57.731+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T10:13:57.738+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=news_dag, task_id=transform_and_load_op, run_id=manual__2024-12-03T10:13:40.881907+00:00, execution_date=20241203T101340, start_date=20241203T101353, end_date=20241203T101357
+[2024-12-03T10:13:57.783+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-12-03T10:13:57.800+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T10:13:57.801+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
