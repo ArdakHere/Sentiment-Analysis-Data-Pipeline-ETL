@@ -30,6 +30,7 @@ Attached is the schema of the pipeline. It works as follows:
 
 
 
+
 A good acquaintance of mine suggested to me the idea of trying out data engineering/analytics a year ago. After some time, I started researching fundamental data concepts and formulating the pet project idea. Throughout the iterations of my pet project I have tried a lot of tools and even though some of them weren’t used there, I learned a lot. Here’s the rundown:
 
 - Apache NiFi. Great GUI, easy to use processors for various data manipulations. However, the sentiment analysis was very cumbersome to perform. Python scripts are deprecated in NiFi and Groovy, the alternative for sentiment processing, didn’t work as intended
