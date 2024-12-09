@@ -6,6 +6,7 @@ Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-s
 - Transforming and processing with Pandas and Python sentiment libraries
 - Temporary loading to AWS S3 raw and processed buckets and loading to final storage BigQuery
 - Deployed on AWS EC2
+- Visualization is done via Looker Studio
 
 Resources
 
@@ -25,10 +26,9 @@ Attached is the schema of the pipeline. It works as follows:
 * Load stage
 - Pulls processed data from S3 bucket
 - Loads data to BigQuery
-- 
 
-<img width="1430" alt="Screenshot 2024-09-30 at 19 36 08" src="https://github.com/user-attachments/assets/bc95b793-7add-44f2-b123-c2dd6ff5eff9">
-**Dashboard image is OUTDATED, will include screenshot of Looker Studio Dashboard later**
+
+<iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4/page/PdaYE" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
 
 
