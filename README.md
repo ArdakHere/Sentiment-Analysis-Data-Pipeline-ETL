@@ -28,7 +28,7 @@ Attached is the schema of the pipeline. It works as follows:
 - Loads data to BigQuery
 
 
-<img width="718" alt="Screenshot 2024-12-09 at 22 46 35" src="https://github.com/user-attachments/assets/d20c287c-1db2-45e4-b71c-f00588f31458">
+<img width="715" alt="Screenshot 2024-12-09 at 22 47 55" src="https://github.com/user-attachments/assets/d56a5eef-a389-4812-8cba-12cd714495c4">
 
 Link to the dashboard - https://lookerstudio.google.com/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4
 
