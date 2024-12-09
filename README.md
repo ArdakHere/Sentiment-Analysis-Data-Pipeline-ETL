@@ -30,6 +30,7 @@ Attached is the schema of the pipeline. It works as follows:
 
 
 Image of the dashboard itself
+
 <img width="627" alt="Screenshot 2024-12-09 at 22 48 48" src="https://github.com/user-attachments/assets/3c58a820-688b-4e2a-bcd3-630e91682f89">
 
 
