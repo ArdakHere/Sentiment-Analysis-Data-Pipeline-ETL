@@ -28,10 +28,9 @@ Attached is the schema of the pipeline. It works as follows:
 - Loads data to BigQuery
 
 
-<iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4/page/PdaYE" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+<img width="718" alt="Screenshot 2024-12-09 at 22 46 35" src="https://github.com/user-attachments/assets/d20c287c-1db2-45e4-b71c-f00588f31458">
 
-
-
+Link to the dashboard - https://lookerstudio.google.com/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4
 
 A good acquaintance of mine suggested to me the idea of trying out data engineering/analytics a year ago. After some time, I started researching fundamental data concepts and formulating the pet project idea. Throughout the iterations of my pet project I have tried a lot of tools and even though some of them weren’t used there, I learned a lot. Here’s the rundown:
 
