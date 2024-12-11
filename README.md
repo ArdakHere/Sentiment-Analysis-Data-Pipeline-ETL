@@ -9,12 +9,14 @@ Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-s
 - Visualization is done via Looker Studio
 
 Tech stack of the project currently: AWS EC2, AWS S3, Apache Airflow, Python, Docker, BigQuery, Looker Studio. 
-Resources
-
-<img width="690" alt="Screenshot 2024-12-11 at 20 32 48" src="https://github.com/user-attachments/assets/a21b959b-1f8d-457b-baf9-7a3a1718a390" />
 
 
-Attached is the schema of the pipeline. It works as follows:
+Architecture of the data pipeline
+
+<img width="625" alt="Screenshot 2024-12-11 at 23 14 39" src="https://github.com/user-attachments/assets/3e2785e8-0215-4076-8c9a-d4f0841589ae" />
+
+
+It works as follows:
 
 ** Extract stage
 -  it scrapes news titles from the popular news outlets
@@ -28,6 +30,7 @@ Attached is the schema of the pipeline. It works as follows:
 - Pulls processed data from S3 bucket
 - Loads data to BigQuery
 
+** Visualization dashboard with Looker Studio
 
 
 Image of the dashboard itself
