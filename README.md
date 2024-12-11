@@ -32,7 +32,7 @@ Attached is the schema of the pipeline. It works as follows:
 
 Image of the dashboard itself
 
-<img width="846" alt="Screenshot 2024-12-11 at 20 29 26" src="https://github.com/user-attachments/assets/e983c04d-48df-45d3-b2ec-547e7a01195a" />
+<img width="789" alt="Screenshot 2024-12-11 at 21 01 50" src="https://github.com/user-attachments/assets/6e321138-2cc4-4614-8526-3947f4c1a158" />
 
 
 Link to the dashboard - https://lookerstudio.google.com/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4
