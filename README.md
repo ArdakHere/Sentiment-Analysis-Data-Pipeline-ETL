@@ -10,7 +10,7 @@ Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-s
 
 Resources
 
-<img width="785" alt="Screenshot 2024-12-09 at 22 53 44" src="https://github.com/user-attachments/assets/119798f5-110c-45b4-b307-94f1fa70cdc3">
+![Uploading Screenshot 2024-12-11 at 20.29.26.png…]()
 
 
 
@@ -31,7 +31,7 @@ Attached is the schema of the pipeline. It works as follows:
 
 Image of the dashboard itself
 
-<img width="782" alt="Screenshot 2024-12-11 at 20 27 38" src="https://github.com/user-attachments/assets/dbd55fa7-76ec-46a2-b309-f8022d6118bb" />
+<img width="846" alt="Screenshot 2024-12-11 at 20 29 26" src="https://github.com/user-attachments/assets/e983c04d-48df-45d3-b2ec-547e7a01195a" />
 
 
 Link to the dashboard - https://lookerstudio.google.com/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4
