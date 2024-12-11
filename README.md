@@ -1,4 +1,4 @@
-**Development status 05.11.2024**
+**Development status 11.12.2024**
 
 Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-scraped data from news websites:
 - News titles are web-scraped from popular news outlets
