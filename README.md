@@ -8,6 +8,7 @@ Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-s
 - Deployed on AWS EC2
 - Visualization is done via Looker Studio
 
+Tech stack of the project currently: AWS EC2, AWS S3, Apache Airflow, Python, Docker, BigQuery, Looker Studio. 
 Resources
 
 <img width="690" alt="Screenshot 2024-12-11 at 20 32 48" src="https://github.com/user-attachments/assets/a21b959b-1f8d-457b-baf9-7a3a1718a390" />
