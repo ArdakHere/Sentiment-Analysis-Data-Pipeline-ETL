@@ -10,8 +10,7 @@ Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-s
 
 Resources
 
-![Uploading Screenshot 2024-12-11 at 20.29.26.png…]()
-
+<img width="690" alt="Screenshot 2024-12-11 at 20 32 48" src="https://github.com/user-attachments/assets/a21b959b-1f8d-457b-baf9-7a3a1718a390" />
 
 
 Attached is the schema of the pipeline. It works as follows:
