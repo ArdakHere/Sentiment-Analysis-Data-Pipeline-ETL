@@ -15,15 +15,16 @@ Resources
 
 
 Attached is the schema of the pipeline. It works as follows:
-* Extract stage
+
+** Extract stage
 -  it scrapes news titles from the popular news outlets
 - loads to the temporary storage AWS S3 raw and processed buckets. Stores S3 link to Xcoms.
 
-* Transform and process stage
+** Transform and process stage
 - Pulls raw data from S3 using Xcom. Assigns a sentiment index to every title and the timestamp, transforms data with Pandas.
   Loads processed data to processed S3 temporary bucket.
 
-* Load stage
+** Load stage
 - Pulls processed data from S3 bucket
 - Loads data to BigQuery
 
