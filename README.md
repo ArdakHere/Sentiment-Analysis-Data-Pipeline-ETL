@@ -1,4 +1,3 @@
-**Development status 11.12.2024**
 
 Data Engineering/Analytics pet-project, ETL Data pipeline for ingestion of web-scraped data from news websites:
 - News titles are web-scraped from popular news outlets
@@ -40,27 +39,22 @@ Image of the dashboard itself
 
 Link to the dashboard - https://lookerstudio.google.com/reporting/13f6cdf2-c88b-4feb-8bba-a24306a510b4
 
-A good acquaintance of mine suggested to me the idea of trying out data engineering/analytics a year ago. After some time, I started researching fundamental data concepts and formulating the pet project idea. Throughout the iterations of my pet project I have tried a lot of tools and even though some of them weren’t used there, I learned a lot. Here’s the rundown:
+Throughout the iterations of my pet project I have tried a lot of tools and even though some of them weren’t used there, I learned a lot. Here’s the rundown:
 
 - Apache NiFi. Great GUI, easy to use processors for various data manipulations. However, the sentiment analysis was very cumbersome to perform. Python scripts are deprecated in NiFi and Groovy, the alternative for sentiment processing, didn’t work as intended
 - Apache Kafka. I learned how to launch the tool, create connections from DB to Kafka and vice versa. Ended up, not using it, as I figured it might have been technical overkill for the purpose of the project.
 - Grafana. I found it not so useful and simple to use as some BI visualization tools. It just didn’t fit the usage case for me.
-- MongoDB. Decided go with PostgreSQL as it's open-source and could be deployed in docker in development.
+- MongoDB. Decided go with PostgreSQL as it's open-source and could be deployed locally in Docker.
 - Although I considered using Plotly or pre-made JavaScript graphs, I was more interested in trying out BI tools, which led me to explore Looker, Tableau, and ultimately, Apache Superset.
 
-- **NOW UTILIZED IN THE PROJECT** Apache Airflow **NOW UTILIZED IN THE PROJECT**
 
 
-While developing, I have tried building these data pipelines:
-- for stock prices of some companies. Rejected because of the limited APIs.
-- for news titles with data from news APIs. Rejected because of limited APIs.
 
 What I would like to do:
 - add a separate dashboard that would analyze scraped contents of news articles, not just titles
 - add a bias analysis
 - add more news outlets to analyze (also have scripts ready for Nur.kz, Tengrinews.kz and Moscowtimes)
-  
-- try using the tools I rejected earlier **Airflow now utilized** 
+- try using the tools I put away earlier
 
 
 I am open to feedback and suggestions to add/improve something, don't hesitate.
